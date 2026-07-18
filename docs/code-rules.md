@@ -59,10 +59,10 @@ app -> fsd-pages -> widgets -> features -> entities -> shared
 
 ```ts
 // Разрешено
-import { Button } from '@/shared/ui/button';
-
 // Запрещено
 import { AuthForm } from '@/features/auth/ui/AuthForm';
+
+import { Button } from '@/shared/ui/button';
 ```
 
 Импортировать другие slices можно только через public API.
@@ -160,6 +160,7 @@ Prettier отвечает только за форматирование.
 - `layout.tsx`;
 - `route groups`;
 - `route handlers`;
+
 <!-- ToDo Возможно стоит подумать над этим -->
 <!-- - `loading.tsx`;
 - `error.tsx`;
@@ -189,5 +190,6 @@ npm run build
 - Prettier configuration: https://prettier.io/docs/configuration
 
 ---
+
 Version: 1.0
 Последнее обновление: 18-07-2026

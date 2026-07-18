@@ -1,9 +1,9 @@
-import { defineConfig, globalIgnores } from 'eslint/config';
-import boundaries from 'eslint-plugin-boundaries';
-import importPlugin from 'eslint-plugin-import';
-import eslintConfigPrettier from 'eslint-config-prettier';
 import nextVitals from 'eslint-config-next/core-web-vitals';
 import nextTs from 'eslint-config-next/typescript';
+import eslintConfigPrettier from 'eslint-config-prettier';
+import boundaries from 'eslint-plugin-boundaries';
+import importPlugin from 'eslint-plugin-import';
+import { defineConfig, globalIgnores } from 'eslint/config';
 
 const eslintConfig = defineConfig([
   ...nextVitals,

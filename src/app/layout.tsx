@@ -1,5 +1,6 @@
-import type { Metadata } from 'next';
 import { Geist } from 'next/font/google';
+
+import type { Metadata } from 'next';
 
 import './styles/globals.css';
 
@@ -22,7 +23,7 @@ type RootLayoutProps = Readonly<{
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="ru">
+    <html lang='ru'>
       <body className={geist.variable}>{children}</body>
     </html>
   );
