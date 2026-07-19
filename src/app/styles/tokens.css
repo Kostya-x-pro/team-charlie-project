@@ -1,0 +1,22 @@
+:root {
+  --font-family-halvar: 'Halvar Breitschrift', sans-serif;
+  --font-family-stolzl: 'Stolzl', sans-serif;
+
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  --font-size-16: 16px;
+  --font-size-20: 20px;
+
+  --line-height-normal: normal;
+  --line-height-24: 24px;
+
+  --color-white: #ffffff;
+  --color-yellow: #fee97d;
+  --color-dark: #0c090e;
+  --color-purple: #9e13e0;
+
+  --opacity-muted: 0.7;
+  --opacity-full: 1;
+}
