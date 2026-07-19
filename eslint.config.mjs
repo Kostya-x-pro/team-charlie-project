@@ -3,6 +3,7 @@ import nextTs from 'eslint-config-next/typescript';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import boundaries from 'eslint-plugin-boundaries';
 import importPlugin from 'eslint-plugin-import';
+import reactRefresh from 'eslint-plugin-react-refresh';
 import { defineConfig, globalIgnores } from 'eslint/config';
 
 const eslintConfig = defineConfig([
@@ -13,6 +14,7 @@ const eslintConfig = defineConfig([
     plugins: {
       boundaries,
       import: importPlugin,
+      'react-refresh': reactRefresh,
     },
     settings: {
       'boundaries/elements': [
@@ -38,7 +40,12 @@ const eslintConfig = defineConfig([
       'import/no-cycle': 'error',
       'import/no-duplicates': 'error',
       'import/no-self-import': 'error',
-
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+      'react-refresh/only-export-components': [
+        'warn',
+        { allowConstantExport: true },
+      ],
       'no-restricted-imports': [
         'error',
         {

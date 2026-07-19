@@ -44,6 +44,9 @@ ESLint работает поверх стандартной конфигурац
 - порядка импортов;
 - FSD boundaries;
 - public API импортов.
+- react-hooks запрещает нарушать правила хуков.
+- react-hooks/exhaustive-deps предупреждает о неполных зависимостях в массиве хука.
+- react-refresh предупреждает, если файл с React-компонентами экспортирует значения, которые могут мешать Fast Refresh.
 
 ## FSD Layers
 
@@ -188,8 +191,10 @@ npm run build
 - Next.js src folder: https://nextjs.org/docs/app/api-reference/file-conventions/src-folder
 - ESLint flat config: https://eslint.org/docs/latest/use/configure/configuration-files
 - Prettier configuration: https://prettier.io/docs/configuration
+- React Hooks ESLint plugin: https://react.dev/reference/eslint-plugin-react-hooks
+- React Refresh ESLint plugin: https://github.com/ArnaudBarre/eslint-plugin-react-refresh
 
 ---
 
-Version: 1.0
-Последнее обновление: 18-07-2026
+Version: 1.01
+Последнее обновление: 19-07-2026
