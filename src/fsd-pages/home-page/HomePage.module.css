@@ -1,11 +1,59 @@
 .page {
+  position: relative;
   min-height: 100vh;
-  place-items: center;
-  padding: 24px;
+  overflow: hidden;
+  background: linear-gradient(
+    121deg,
+    rgb(220 132 0) 3%,
+    rgb(86 0 128) 50%,
+    rgb(20 9 26) 92%
+  );
 }
 
-.arrowIcon {
-  width: 50px;
-  height: 50px;
-  color: #5d27a5;
+.page::before {
+  position: absolute;
+  inset: 0;
+  content: '';
+  pointer-events: none;
+  background: linear-gradient(
+    121deg,
+    var(--color-hero-orange) 3%,
+    var(--color-hero-purple) 50%,
+    var(--color-hero-dark) 92%
+  );
+  background-size:
+    auto,
+    120px 120px,
+    120px 120px;
+  opacity: 0.35;
+  mask-image: linear-gradient(
+    130deg,
+    transparent 0%,
+    transparent 42%,
+    black 66%,
+    black 100%
+  );
+}
+
+.page_content {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 1440px);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 48px 54px;
+}
+
+.snake_wrapper {
+  position: absolute;
+  right: -2%;
+  bottom: -16%;
+  width: min(58vw, 760px);
+  pointer-events: none;
+}
+
+.snake_image {
+  display: block;
+  width: 100%;
+  height: auto;
 }
