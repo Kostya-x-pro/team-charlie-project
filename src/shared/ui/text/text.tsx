@@ -19,12 +19,13 @@ type TextTag =
   | 'small';
 
 type TextFamily = 'halvar' | 'stolzl';
-type TextSize = '16' | '20';
+type TextSize = '16' | '20' | '60';
 type TextWeight = 'light' | 'regular' | 'bold';
-type TextLineHeight = 'normal' | '24';
+type TextLineHeight = 'normal' | '24' | '54';
 type TextColor = 'white' | 'yellow' | 'dark' | 'purple' | 'inherit';
 type TextAlign = 'left' | 'center' | 'right';
 type TextTransform = 'none' | 'uppercase';
+type TextLetterSpacing = 'normal' | 'display' | 'display-accent' | 'button';
 
 interface TextOwnProps {
   tag?: TextTag;
@@ -37,6 +38,7 @@ interface TextOwnProps {
   color?: TextColor;
   align?: TextAlign;
   transform?: TextTransform;
+  letterSpacing?: TextLetterSpacing;
   underline?: boolean;
   opacity?: '70' | '100';
   noWrap?: boolean;
@@ -57,6 +59,7 @@ export const Text = <T extends ElementType = 'p'>(props: TextProps<T>) => {
     color = 'inherit',
     align = 'left',
     transform = 'none',
+    letterSpacing = 'normal',
     underline = false,
     opacity = '100',
     noWrap = false,
@@ -76,6 +79,7 @@ export const Text = <T extends ElementType = 'p'>(props: TextProps<T>) => {
         styles[`color_${color}`],
         styles[`align_${align}`],
         styles[`transform_${transform}`],
+        styles[`letter_spacing_${letterSpacing}`],
         styles[`opacity_${opacity}`],
         underline && styles.underline,
         noWrap && styles.no_wrap,
