@@ -1,17 +1,8 @@
 import LogoIcon from '@/shared/assets/icons/logo_small_icon.svg';
 import { Text } from '@/shared/ui/text';
 
+import { HEADER_NAV_ITEMS } from '../model/nav-items';
 import styles from './header.module.css';
-
-interface NavItem {
-  label: string;
-}
-
-const HEADER_NAV_ITEMS: NavItem[] = [
-  { label: 'Team' },
-  { label: 'Benefits' },
-  { label: 'Join Us' },
-];
 
 // Todo - временно используется обычный `button` в переспективе это нужно делать через shared/button
 export const Header = () => {

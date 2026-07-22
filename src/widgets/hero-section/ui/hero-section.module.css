@@ -1,0 +1,88 @@
+.hero {
+  position: relative;
+  min-height: 650px;
+}
+
+.hero_content {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: min(100%, 756px);
+  gap: 30px;
+  transform: translateY(-50%);
+}
+
+.hero_text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.hero_title {
+  max-width: 570px;
+}
+
+.hero_description {
+  max-width: 500px;
+}
+
+.hero_button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 280px;
+  min-height: 72px;
+  padding: 18px 30px;
+  background: var(--color-yellow);
+  border: 2px solid var(--color-dark);
+  cursor: pointer;
+}
+
+.snake_wrapper {
+  position: absolute;
+  right: -1px;
+  bottom: -53px;
+  z-index: 1;
+  width: min(60vw, 772px);
+  height: 700px;
+  pointer-events: none;
+}
+
+.snake_image {
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+.socials {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.social_button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  color: var(--color-white);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.social_icon {
+  width: 40px;
+  height: 40px;
+  color: currentColor;
+}
