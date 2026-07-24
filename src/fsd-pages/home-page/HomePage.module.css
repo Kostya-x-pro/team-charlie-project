@@ -1,4 +1,10 @@
 .page {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--color-hero-dark);
+}
+
+.first_section {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
@@ -10,11 +16,11 @@
   );
 }
 
-.page_content {
-  position: relative;
-  z-index: 1;
-  width: min(100%, 1280px);
-  min-height: 700px;
-  margin: 0 auto;
+.first_section_content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
   padding: 20px 30px 30px;
 }
