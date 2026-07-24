@@ -171,6 +171,14 @@ Prettier отвечает только за форматирование.
 
 Основную UI-логику выносим в FSD-слои.
 
+## Fonts And Tokens
+
+Шрифты подключаем локально через `@font-face` в `src/app/styles/fonts.css`.
+
+Файлы шрифтов храним в `public/fonts`.
+
+Пользовательские CSS-значения не хардкодим в компонентах. Цвета, шрифты, font-weight, font-size и line-height выносим в CSS variables в `src/app/styles/tokens.css`.
+
 ## CI/CD Notes
 
 CI/CD пока не настроен, однако проект должен быть готов к следующим проверкам:
@@ -196,5 +204,5 @@ npm run build
 
 ---
 
-Version: 1.01
+Version: 1.02
 Последнее обновление: 19-07-2026

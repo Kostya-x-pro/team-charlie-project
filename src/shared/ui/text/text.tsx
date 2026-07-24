@@ -1,0 +1,89 @@
+import type { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react';
+
+import { cn } from '@/shared/lib/cn';
+
+import styles from './text.module.css';
+
+type TextTag =
+  | 'p'
+  | 'span'
+  | 'div'
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6'
+  | 'label'
+  | 'strong'
+  | 'small';
+
+type TextFamily = 'halvar' | 'stolzl';
+type TextSize = '16' | '20';
+type TextWeight = 'light' | 'regular' | 'bold';
+type TextLineHeight = 'normal' | '24';
+type TextColor = 'white' | 'yellow' | 'dark' | 'purple' | 'inherit';
+type TextAlign = 'left' | 'center' | 'right';
+type TextTransform = 'none' | 'uppercase';
+
+interface TextOwnProps {
+  tag?: TextTag;
+  children: ReactNode;
+  className?: string;
+  family?: TextFamily;
+  size?: TextSize;
+  weight?: TextWeight;
+  lineHeight?: TextLineHeight;
+  color?: TextColor;
+  align?: TextAlign;
+  transform?: TextTransform;
+  underline?: boolean;
+  opacity?: '70' | '100';
+  noWrap?: boolean;
+}
+
+type TextProps<T extends ElementType = 'p'> = TextOwnProps &
+  Omit<ComponentPropsWithoutRef<T>, keyof TextOwnProps>;
+
+export const Text = <T extends ElementType = 'p'>(props: TextProps<T>) => {
+  const {
+    tag = 'div',
+    children,
+    className,
+    family = 'halvar',
+    size = '16',
+    weight = 'regular',
+    lineHeight = '24',
+    color = 'inherit',
+    align = 'left',
+    transform = 'none',
+    underline = false,
+    opacity = '100',
+    noWrap = false,
+    ...otherProps
+  } = props;
+
+  const Component = tag ?? 'p';
+
+  return (
+    <Component
+      className={cn(
+        styles.text,
+        styles[`family_${family}`],
+        styles[`size_${size}`],
+        styles[`weight_${weight}`],
+        styles[`line_height_${lineHeight}`],
+        styles[`color_${color}`],
+        styles[`align_${align}`],
+        styles[`transform_${transform}`],
+        styles[`opacity_${opacity}`],
+        underline && styles.underline,
+        noWrap && styles.no_wrap,
+        className,
+      )}
+      {...otherProps}
+    >
+      {children}
+    </Component>
+  );
+};
