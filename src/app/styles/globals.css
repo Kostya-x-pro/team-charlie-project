@@ -1,4 +1,4 @@
-@import './reset.css';
+@import "./reset.css";
 
 :root {
   --background: #ffffff;
@@ -28,4 +28,8 @@ body {
   html {
     color-scheme: dark;
   }
+}
+
+button {
+  cursor: pointer;
 }
