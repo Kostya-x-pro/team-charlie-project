@@ -3,6 +3,8 @@ import Image from 'next/image';
 import SnakeIcon from '@/shared/assets/icons/logo_small_icon.svg';
 import snakeImage from '@/shared/assets/images/hero_page_snake.png';
 import { Text } from '@/shared/ui/text';
+import { Button } from '@/shared/ui/button';
+import { Tab } from '@/shared/ui/tab';
 
 import styles from './HomePage.module.css';
 
@@ -32,6 +34,14 @@ export const HomePage = () => {
       <Text tag='span' family='halvar' size='20' weight='bold' color='yellow' transform='uppercase' underline noWrap>
         Team
       </Text>
+
+      <br/>
+      <br/>
+      <Button>get in touch</Button>
+      <br />
+      <br />
+      <Tab>For Businesses</Tab>
+
     </main>
   );
 };

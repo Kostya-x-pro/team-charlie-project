@@ -1,0 +1,74 @@
+.button {
+  position: relative;
+  padding: 12px 12px 0 0;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+
+.button:hover .top,
+.button:hover .front,
+.button:hover .side {
+  background-color: var(--color-dark);
+  color: var(--color-yellow);
+  border-color: var(--color-yellow);
+}
+
+.front,
+.top,
+.side {
+    transition: all .3s ease;
+}
+
+.front {
+  position: relative;
+  z-index: 3;
+  display: block;
+  padding: 16px 46px;
+  background: var(--color-yellow);
+  border: 3px solid var(--color-dark);
+  font-family: var(--font-family-stolzl);
+  font-weight: var(--font-weight-bold);
+  font-size: 20px;
+  line-height: var(--line-height-24);
+  letter-spacing: 0.1em;
+  color: var(--color-dark);
+}
+
+.top {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 5px;
+  right: 6px;
+  height: 12px;
+  background: var(--color-yellow);
+  border: 3px solid var(--color-dark);
+  transform: skewX(-45deg);
+  border-bottom: none;
+}
+
+.side {
+  position: absolute;
+  z-index: 1;
+  bottom: 5px;
+  right: 0;
+  width: 12px;
+  height: 100%;
+  background: var(--color-yellow);
+  border: 3px solid var(--color-dark);
+  transform: skewY(-45deg);
+  border-left: none;
+  border-top: none;
+}
+
+.button:focus-visible {
+    outline: none;
+}
+
+.button:focus-visible .top,
+.button:focus-visible .front,
+.button:focus-visible .side {
+  background-color: var(--color-dark);
+  color: var(--color-yellow);
+  border-color: var(--color-yellow);
+}
