@@ -1,0 +1,1 @@
+export { Benefits as default } from '@/fsd-pages/benefits';
