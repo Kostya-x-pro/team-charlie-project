@@ -65,10 +65,10 @@ describe('API client', () => {
     );
 
     await expect(apiRequest({ path: '/form' })).rejects.toMatchObject({
-    name: 'ApiError',
-    message: 'Request failed with status 400',
-    status: 400,
-    response: { message: 'Invalid request' },
+      name: 'ApiError',
+      message: 'Request failed with status 400',
+      status: 400,
+      response: { message: 'Invalid request' },
     });
   });
 });
