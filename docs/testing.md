@@ -128,6 +128,39 @@ playwright.config.ts
 - snapshots не используются для больших компонентов и страниц;
 - coverage применяется как индикатор, а не как самоцель.
 
+## Continuous Integration
+
+CI реализован через GitHub Actions и настроен в:
+
+```text
+.github/workflows/ci.yml
+```
+
+При CI запусаются:
+
+```bash
+npm ci
+npm run typecheck
+npm run lint
+npm run format:check
+npm run test:run
+npm run build
+npx playwright install --with-deps chromium
+npx playwright test
+```
+
+**Проверяются:**
+- корректность TypeScript;
+- правила ESLint;
+- форматирование Prettier;
+- unit- и integration-тесты;
+- production-сборка Next.js;
+- критичные E2E-сценарии в Chromium.
+
+<u>*Если E2E-тест падает, GitHub Actions сохраняет Playwright report и результаты тестов как artifact на 7 дней.*</u>
+
+<u>*При появлении нового коммита предыдущий незавершённый запуск того же Pull Request отменяется.*</u>
+
 ## Источники
 
 - https://nextjs.org/docs/app/guides/testing/vitest
@@ -135,3 +168,7 @@ playwright.config.ts
 - https://vitest.dev/config/
 - https://testing-library.com/docs/guiding-principles/
 - https://playwright.dev/docs/test-webserver
+- https://docs.github.com/en/actions
+- https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run
+- https://docs.github.com/en/actions/how-tos/write-workflows/control-workflow-concurrency
+- https://playwright.dev/docs/ci
