@@ -1,74 +1,139 @@
 .button {
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-dark);
+  border: 0;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+}
+
+.button_primary {
   padding: 12px 12px 0 0;
   overflow: hidden;
   text-transform: uppercase;
 }
 
-.button:hover .top,
-.button:hover .front,
-.button:hover .side {
-  background-color: var(--color-dark);
-  color: var(--color-yellow);
-  border-color: var(--color-yellow);
-}
-
-.front,
-.top,
-.side {
-    transition: all .3s ease;
-}
-
-.front {
+.button_content {
   position: relative;
   z-index: 3;
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+.button_primary .button_content {
   padding: 16px 46px;
+  color: var(--color-dark);
   background: var(--color-yellow);
   border: 3px solid var(--color-dark);
   font-family: var(--font-family-stolzl);
+  font-size: var(--font-size-20);
   font-weight: var(--font-weight-bold);
-  font-size: 20px;
   line-height: var(--line-height-24);
   letter-spacing: 0.1em;
-  color: var(--color-dark);
 }
 
-.top {
+.button_top,
+.button_side,
+.button_primary .button_content {
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.button_top {
   position: absolute;
-  z-index: 2;
   top: 0;
-  left: 5px;
   right: 6px;
+  left: 5px;
+  z-index: 2;
   height: 12px;
   background: var(--color-yellow);
   border: 3px solid var(--color-dark);
+  border-bottom: 0;
   transform: skewX(-45deg);
-  border-bottom: none;
 }
 
-.side {
+.button_side {
   position: absolute;
-  z-index: 1;
-  bottom: 5px;
   right: 0;
+  bottom: 5px;
+  z-index: 1;
   width: 12px;
   height: 100%;
   background: var(--color-yellow);
   border: 3px solid var(--color-dark);
+  border-top: 0;
+  border-left: 0;
   transform: skewY(-45deg);
-  border-left: none;
-  border-top: none;
+}
+
+.button_primary:hover .button_top,
+.button_primary:hover .button_side,
+.button_primary:hover .button_content,
+.button_primary:focus-visible .button_top,
+.button_primary:focus-visible .button_side,
+.button_primary:focus-visible .button_content {
+  color: var(--color-yellow);
+  background: var(--color-dark);
+  border-color: var(--color-yellow);
+}
+
+.button_secondary {
+  padding: 28px 57px;
+  color: var(--color-yellow);
+  background: transparent;
+  border: 3px solid var(--color-yellow);
+  border-radius: 999px;
+  font-family: var(--font-family-halvar);
+  font-size: 28px;
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-normal);
+  text-transform: capitalize;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.button_secondary:hover,
+.button_secondary:focus-visible,
+.button_secondary.button_active {
+  color: var(--color-dark);
+  background: var(--color-yellow);
+  border-color: var(--color-dark);
+}
+
+.button_label {
+  color: currentColor;
+  white-space: nowrap;
+}
+
+.button_icon {
+  width: 52px;
+  height: auto;
+  color: currentColor;
+  flex-shrink: 0;
+}
+
+.button_icon_left {
+  transform: rotate(180deg);
 }
 
 .button:focus-visible {
-    outline: none;
+  outline: 2px solid var(--color-yellow);
+  outline-offset: 2px;
 }
 
-.button:focus-visible .top,
-.button:focus-visible .front,
-.button:focus-visible .side {
-  background-color: var(--color-dark);
-  color: var(--color-yellow);
-  border-color: var(--color-yellow);
+.button_disabled {
+  opacity: var(--opacity-muted);
+  pointer-events: none;
 }

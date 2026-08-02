@@ -2,9 +2,8 @@ import Image from 'next/image';
 
 import SnakeIcon from '@/shared/assets/icons/logo_small_icon.svg';
 import snakeImage from '@/shared/assets/images/hero_page_snake.png';
-import { Text } from '@/shared/ui/text';
 import { Button } from '@/shared/ui/button';
-import { Tab } from '@/shared/ui/tab';
+import { Text } from '@/shared/ui/text';
 
 import styles from './HomePage.module.css';
 
@@ -27,21 +26,29 @@ export const HomePage = () => {
         middlemen, no outsourcing
       </Text>
 
-      <Text family='stolzl' size='20'color='white' opacity='70'>
+      <Text family='stolzl' size='20' color='white' opacity='70'>
         Custom tools, fast integrations and scalable architecture
       </Text>
 
-      <Text tag='span' family='halvar' size='20' weight='bold' color='yellow' transform='uppercase' underline noWrap>
+      <Text
+        tag='span'
+        family='halvar'
+        size='20'
+        weight='bold'
+        color='yellow'
+        transform='uppercase'
+        underline
+        noWrap
+      >
         Team
       </Text>
 
-      <br/>
-      <br/>
+      <br />
+      <br />
       <Button>get in touch</Button>
       <br />
       <br />
-      <Tab>For Businesses</Tab>
-
+      <Button variant='secondary'>get in touch</Button>
     </main>
   );
 };

@@ -1,21 +1,72 @@
-import { ReactNode } from "react";
+import type { ButtonHTMLAttributes, ReactNode } from 'react';
 
-import styles from "./button.module.css";
+import ArrowRightIcon from '@/shared/assets/icons/Tab_arrow.svg';
+import { cn } from '@/shared/lib/cn';
 
-interface GetInTouchButtonProps {
+import styles from './button.module.css';
+
+type ButtonVariant = 'primary' | 'secondary';
+type ButtonIconPosition = 'left' | 'right';
+
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  onClick?: () => void;
+  variant?: ButtonVariant;
+  active?: boolean;
+  withIcon?: boolean;
+  iconPosition?: ButtonIconPosition;
 }
 
-export const Button = ({
-  children,
-  onClick,
-}: GetInTouchButtonProps) => {
+export const Button = (props: Props) => {
+  const {
+    children,
+    variant = 'primary',
+    active = false,
+    withIcon = false,
+    iconPosition = 'right',
+    className,
+    type = 'button',
+    disabled,
+    ...otherProps
+  } = props;
+  const isPrimary = variant === 'primary';
+  const isSecondary = variant === 'secondary';
+  const hasIcon = isSecondary || withIcon;
+
   return (
-    <button type="button" className={styles.button} onClick={onClick}>
-      <span className={styles.top} aria-hidden="true" />
-      <span className={styles.side} aria-hidden="true" />
-      <span className={styles.front}>{children}</span>
+    <button
+      className={cn(
+        styles.button,
+        styles[`button_${variant}`],
+        active && styles.button_active,
+        disabled && styles.button_disabled,
+        className,
+      )}
+      type={type}
+      disabled={disabled}
+      aria-pressed={isSecondary ? active : undefined}
+      {...otherProps}
+    >
+      {isPrimary && (
+        <>
+          <span className={styles.button_top} aria-hidden='true' />
+          <span className={styles.button_side} aria-hidden='true' />
+        </>
+      )}
+
+      <span className={styles.button_content}>
+        {hasIcon && iconPosition === 'left' && (
+          <ArrowRightIcon
+            className={cn(styles.button_icon, styles.button_icon_left)}
+            aria-hidden='true'
+          />
+        )}
+
+        <span className={styles.button_label}>{children}</span>
+
+        {hasIcon && iconPosition === 'right' && (
+          <ArrowRightIcon className={styles.button_icon} aria-hidden='true' />
+        )}
+      </span>
     </button>
   );
-}
+};
