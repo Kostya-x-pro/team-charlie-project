@@ -1,16 +1,13 @@
-import { languages, Locale, defaultLang } from "../config";
+import { Locale, defaultLang } from "../../config/i18n";
+import { isValidLocale } from "./isValidLocale";
 
 interface ResolveLocaleParams {
-  urlLocale: string | undefined;
-  cookieValue: string | undefined;
+  urlLocale: string;
+  cookieValue: string;
   acceptLanguage?: string;
 }
 
 export const COOKIE_KEY = "language" as const;
-
-export function isValidLocale(value: string): value is Locale {
-  return languages.includes(value);
-}
 
 export function resolveLocale({
   urlLocale,
@@ -30,7 +27,7 @@ export function resolveLocale({
   return defaultLang;
 }
 
-export function setDefaultLocale(locale: Locale): void {
+export function setLocaleCookie(locale: Locale): void {
   if (!isValidLocale(locale) || typeof document === "undefined") return;
 
   document.cookie = `${COOKIE_KEY}=${locale}; path=/; max-age=31536000; samesite=lax`;

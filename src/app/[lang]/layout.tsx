@@ -1,15 +1,10 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import I18nProvider from "@/shared/providers/i18n/I18nProvider";
 
-import "@/app/i18n";
-import I18nProvider from "@/app/i18n/components/I18nProvider";
+import { isValidLocale } from "../../shared/lib/i18n";
+import { defaultLang } from "../../shared/config/i18n";
 
 import "@/app/styles/globals.css";
-
-const geist = Geist({
-  variable: "--font-geist",
-  subsets: ["latin", "cyrillic"],
-});
 
 export const metadata: Metadata = {
   title: {
@@ -24,13 +19,14 @@ export default async function LocaleLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { lang: string };
+  params: Promise<{ lang: string }>;
 }) {
-  const { lang } = await params;
+  const { lang: rawLang } = await params;
+  const lang = isValidLocale(rawLang) ? rawLang : defaultLang;
 
   return (
     <html lang={lang}>
-      <body className={geist.variable}>
+      <body>
         <I18nProvider lang={lang}>{children}</I18nProvider>
       </body>
     </html>

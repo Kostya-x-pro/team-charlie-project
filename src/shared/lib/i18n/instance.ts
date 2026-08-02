@@ -3,10 +3,10 @@
 import i18next from "i18next";
 import { initReactI18next } from "react-i18next";
 
-import { defaultLang } from "./config";
+import { defaultLang } from "@/shared/config/i18n";
 
-import en from "../../../public/locales/en/translation.json";
-import ru from "../../../public/locales/ru/translation.json";
+import en from "public/locales/en/translation.json";
+import ru from "public/locales/ru/translation.json";
 
 i18next.use(initReactI18next).init({
   resources: {

@@ -4,11 +4,11 @@ import {
   resolveLocale,
   COOKIE_KEY,
   buildLocalizedPath,
-} from "./helpers";
+} from ".";
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
-  const firstSegment = pathname.split("/")[1] ?? "";
+  const firstSegment = pathname.split("/")[1];
 
   if (isValidLocale(firstSegment)) {
     const cookieLocale = req.cookies.get(COOKIE_KEY)?.value;
@@ -28,8 +28,8 @@ export function middleware(req: NextRequest) {
     return NextResponse.next();
   }
 
-  const cookieLocale = req.cookies.get(COOKIE_KEY)?.value;
-  const acceptLanguage = req.headers.get("accept-language") ?? undefined;
+  const cookieLocale = req.cookies.get(COOKIE_KEY)?.value ?? "";
+  const acceptLanguage = req.headers.get("accept-language") ?? "";
   const resolvedLocale = resolveLocale({
     urlLocale: firstSegment,
     cookieValue: cookieLocale,
