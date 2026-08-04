@@ -1,6 +1,6 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
 
-import ArrowRightIcon from '@/shared/assets/icons/Tab_arrow.svg';
+import ArrowIcon from '@/shared/assets/icons/Arrow.svg';
 import { cn } from '@/shared/lib/cn';
 
 import styles from './button.module.css';
@@ -55,7 +55,7 @@ export const Button = (props: Props) => {
 
       <span className={styles.button_content}>
         {hasIcon && iconPosition === 'left' && (
-          <ArrowRightIcon
+          <ArrowIcon
             className={cn(styles.button_icon, styles.button_icon_left)}
             aria-hidden='true'
           />
@@ -64,7 +64,7 @@ export const Button = (props: Props) => {
         <span className={styles.button_label}>{children}</span>
 
         {hasIcon && iconPosition === 'right' && (
-          <ArrowRightIcon className={styles.button_icon} aria-hidden='true' />
+          <ArrowIcon className={styles.button_icon} aria-hidden='true' />
         )}
       </span>
     </button>
