@@ -31,18 +31,6 @@
   max-width: 500px;
 }
 
-.hero_button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 280px;
-  min-height: 72px;
-  padding: 18px 30px;
-  background: var(--color-yellow);
-  border: 2px solid var(--color-dark);
-  cursor: pointer;
-}
-
 .snake_wrapper {
   position: absolute;
   right: -1px;
