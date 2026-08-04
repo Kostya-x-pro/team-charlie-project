@@ -1,19 +1,9 @@
 import LogoIcon from '@/shared/assets/icons/logo_small_icon.svg';
 import { Text } from '@/shared/ui/text';
 
+import { HEADER_NAV_ITEMS } from '../model/nav-items';
 import styles from './header.module.css';
 
-interface NavItem {
-  label: string;
-}
-
-const HEADER_NAV_ITEMS: NavItem[] = [
-  { label: 'Team' },
-  { label: 'Benefits' },
-  { label: 'Join Us' },
-];
-
-// Todo - временно используется обычный `button` в переспективе это нужно делать через shared/button
 export const Header = () => {
   return (
     <header className={styles.header}>
@@ -22,21 +12,22 @@ export const Header = () => {
       </button>
 
       <nav className={styles.nav} aria-label='Main navigation'>
-        {HEADER_NAV_ITEMS.map(item => (
-          <button className={styles.nav_button} type='button' key={item.label}>
-            <Text
-              tag='span'
-              size='20'
-              weight='bold'
-              lineHeight='normal'
-              color='yellow'
-              transform='uppercase'
-              underline
-              noWrap
-            >
-              {item.label}
-            </Text>
-          </button>
+        {HEADER_NAV_ITEMS.map(({ href, label }) => (
+          <Text
+            className={styles.nav_link}
+            tag='a'
+            href={href}
+            size='20'
+            weight='bold'
+            lineHeight='normal'
+            color='yellow'
+            transform='uppercase'
+            underline
+            noWrap
+            key={href}
+          >
+            {label}
+          </Text>
         ))}
 
         <button
