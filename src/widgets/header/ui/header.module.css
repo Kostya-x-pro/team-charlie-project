@@ -33,19 +33,18 @@
   gap: 20px;
 }
 
-.nav_button,
+.nav_link,
 .language_button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 10px;
-  color: inherit;
   background: transparent;
   border: 0;
   cursor: pointer;
 }
 
-.nav_button:focus-visible,
+.nav_link:focus-visible,
 .language_button:focus-visible,
 .logo_button:focus-visible {
   outline: 2px solid var(--color-yellow);

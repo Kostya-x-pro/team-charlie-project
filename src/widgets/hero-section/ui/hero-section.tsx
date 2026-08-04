@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
 import snakeImage from '@/shared/assets/images/hero_page_snake.png';
+import { Button } from '@/shared/ui/button';
 import { Text } from '@/shared/ui/text';
 
 import { SOCIAL_ITEMS } from '../model/social-items';
@@ -53,20 +54,7 @@ export const HeroSection = () => {
           </Text>
         </div>
 
-        <button className={styles.hero_button} type='button'>
-          <Text
-            tag='span'
-            size='20'
-            weight='bold'
-            lineHeight='normal'
-            color='dark'
-            transform='uppercase'
-            letterSpacing='button'
-            noWrap
-          >
-            Get in Touch
-          </Text>
-        </button>
+        <Button variant='primary'>Get in Touch</Button>
       </div>
 
       <div className={styles.snake_wrapper} aria-hidden='true'>
