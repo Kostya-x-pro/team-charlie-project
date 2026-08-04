@@ -9,8 +9,13 @@ import styles from './multitask-section.module.css';
 
 export const MultitaskSection = () => {
   return (
-    <section className={styles.section} aria-labelledby='multitask-title'>
+    <section
+      id='team'
+      className={styles.section}
+      aria-labelledby='multitask-title'
+    >
       <Text
+        id='multitask-title'
         className={styles.section_title}
         tag='h2'
         size='20'
@@ -49,13 +54,13 @@ export const MultitaskSection = () => {
             no middlemen, no outsourcing
           </Text>
 
-            <Image
-              className={styles.image}
-              src={multitaskSnakeImage}
-              alt=''
-              width={507}
-              height={394}
-            />
+          <Image
+            className={styles.image}
+            src={multitaskSnakeImage}
+            alt=''
+            width={507}
+            height={394}
+          />
         </article>
 
         <div className={styles.cards_grid}>
