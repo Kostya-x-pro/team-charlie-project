@@ -4,7 +4,7 @@ import TextDiver from '@/shared/assets/icons/text-diver-icon.svg';
 import snakeImage from '@/shared/assets/images/multibenefits_page_snake.png';
 import { Text } from '@/shared/ui/text';
 
-import styles from './BenefitsSection.module.css';
+import styles from './benefits-section.module.css';
 
 const MARQUEE_TEXT = 'DREAM BIG EARN BIGGER!';
 
@@ -42,7 +42,7 @@ export const BenefitsSection = () => {
               Results can only be
               <Text
                 tag='span'
-                size='60'
+                size='50'
                 weight='bold'
                 lineHeight='54'
                 color='yellow'
@@ -125,7 +125,9 @@ export const BenefitsSection = () => {
                   tag='span'
                   family='halvar'
                   size='70'
-                  weight='bold'
+                  weight='light'
+                  lineHeight='normal'
+                  letterSpacing='display-accent'
                   transform='uppercase'
                   color='yellow'
                   className={styles.marquee_text}
