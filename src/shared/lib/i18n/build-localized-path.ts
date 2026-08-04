@@ -1,5 +1,6 @@
-import { Locale } from "../../config/i18n";
-import { isValidLocale } from "./isValidLocale";
+import type { Locale } from '@/shared/config/i18n';
+
+import { isValidLocale } from './is-valid-locale';
 
 interface BuildLocalizedPathParams {
   pathname: string;
@@ -14,7 +15,7 @@ export function buildLocalizedPath({
     throw new Error(`Unknown language: ${newLang}`);
   }
 
-  const segments = pathname.split("/");
+  const segments = pathname.split('/');
   const currentLang = segments[1];
 
   if (currentLang === newLang) {
@@ -27,5 +28,5 @@ export function buildLocalizedPath({
 
   segments[1] = newLang;
 
-  return segments.join("/") || "/";
+  return segments.join('/') || '/';
 }

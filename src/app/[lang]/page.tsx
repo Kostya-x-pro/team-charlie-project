@@ -1,1 +1,1 @@
-export { HomePage as default } from "@/fsd-pages/home-page";
+export { HomePage as default } from '@/fsd-pages/home-page';

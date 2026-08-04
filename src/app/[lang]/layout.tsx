@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
-import I18nProvider from "@/shared/providers/i18n/I18nProvider";
+import type { Metadata } from 'next';
 
-import { isValidLocale } from "../../shared/lib/i18n";
-import { defaultLang } from "../../shared/config/i18n";
+import { I18nProvider } from '@/app/providers/i18n/i18n-provider';
+import '@/app/styles/globals.css';
 
-import "@/app/styles/globals.css";
+import { DEFAULT_LOCALE } from '@/shared/config/i18n';
+import { isValidLocale } from '@/shared/lib/i18n';
 
 export const metadata: Metadata = {
   title: {
-    default: "Team Charlie Project",
-    template: "%s | Team Charlie Project",
+    default: 'Team Charlie Project',
+    template: '%s | Team Charlie Project',
   },
-  description: "Team Charlie web application",
+  description: 'Team Charlie web application',
 };
 
 export default async function LocaleLayout({
@@ -22,7 +22,7 @@ export default async function LocaleLayout({
   params: Promise<{ lang: string }>;
 }) {
   const { lang: rawLang } = await params;
-  const lang = isValidLocale(rawLang) ? rawLang : defaultLang;
+  const lang = isValidLocale(rawLang) ? rawLang : DEFAULT_LOCALE;
 
   return (
     <html lang={lang}>
