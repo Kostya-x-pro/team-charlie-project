@@ -1,138 +1,179 @@
-Данный документ описывает правила написания кода в проекте
+# Code Style
+
+Данный документ описывает правила написания кода в проекте.
+
+## Содержание
+
+- [Именование файлов и папок](#именование-файлов-и-папок)
+- [Константы](#константы)
+- [Переменные](#переменные)
+- [React-компоненты](#react-компоненты)
+- [Функции](#функции)
+- [React Hooks](#react-hooks)
+- [Git Branch Naming](#git-branch-naming)
+- [CSS](#css)
+- [TypeScript](#typescript)
 
 ---
 
-Общее правила именования файлов и папок
+## Именование файлов и папок
 
-Используем kebab-case
+Используем `kebab-case`.
 
+```
 user-profile.tsx
 app-routes.ts
 auth-service.ts
+```
 
 ---
 
-Константы
+## Константы
 
-Глобальные константы пишем в формате SNAKE_CASE
+Глобальные константы пишем в формате `SNAKE_CASE`.
 
-const API_URL = '/api';
+```typescript
+const API_URL = "/api";
 const MAX_RETRY_COUNT = 3;
+```
 
 ---
 
-Локальные переменные и значения внутри функций пишем в camelCase.
+## Переменные
 
-const userName = 'Alex';
+Локальные переменные и значения внутри функций пишем в `camelCase`.
+
+```typescript
+const userName = "Alex";
+```
 
 ---
 
-React компоненты
+## React-компоненты
 
-Для React компонентов используем PascalCase (Название файла должно соответствовать названию компонента)
+Для React-компонентов используем `PascalCase`. Название файла должно соответствовать названию компонента.
 
+```typescript
 const UserProfileCard = () => {
-return <div>User</div>;
+  return <div>User</div>;
 };
+```
 
 ---
 
-Функции
+## Функции
 
-Используем camelCase (Название функций должно отвечать их сущности)
+Используем `camelCase`. Название функции должно отражать её назначение.
 
+```typescript
 const getUserData = () => {};
 const calculateTotalPrice = () => {};
+```
 
 ---
 
-React Hooks
+## React Hooks
 
-Используем формат camelCase с префиксом use
+Используем `camelCase` с префиксом `use`.
 
+```typescript
 const useAuth = () => {};
+```
 
 ---
 
-Git Branch Naming
+## Git Branch Naming
 
-Название новых веток создаём по названию задачи из ClickUp
+Название новых веток создаём по названию задачи из ClickUp.
 
-Формат: feature/task-name
+**Формат:** `feature/task-name`
 
-К примеру есть задача - Prepare assets from project
-Тогда ветка будет => feature/prepare-assets-from-project
+**Пример:**
+
+Задача — _"Prepare assets from project"_
+Ветка — `feature/prepare-assets-from-project`
 
 ---
 
-CSS
+## CSS
 
-Для названия CSS классов используем snake_case.
+Для названия CSS-классов используем `snake_case`.
 
+```css
 .user_profile_card {
 }
+```
 
-Для обозначения активности класса используем "--"
+Для обозначения активного состояния используем модификатор через `--`.
 
+```css
 .user_profile_card--active {
 }
+```
 
-Для названия css модуля ипользуем kebab-case
+Для названия файла CSS-модуля используем `kebab-case`.
 
+```
 user-profile.module.css
+```
 
 ---
 
-TypeScript
+## TypeScript
 
----
+### Interfaces
 
-Interfaces
+Не используем венгерскую нотацию.
 
-Не используем венгерскую нотацию
-
+```typescript
 interface User {
-name: string;
-age: number;
+  name: string;
+  age: number;
 }
+```
 
-ПЛОХО => interface ObjUser {}
+❌ **Плохо:**
 
----
+```typescript
+interface ObjUser {}
+```
 
-Type
+### Type
 
-Используется для: - union типов - сложных типов - комбинаций типов
+Используется для:
 
-type Name = 'Alex' | 'Olga' | 'Max';
-type Status = 'loading' | 'success' | 'error';
+- union-типов
+- сложных типов
+- комбинаций типов
 
----
+```typescript
+type Name = "Alex" | "Olga" | "Max";
+type Status = "loading" | "success" | "error";
+```
 
-Типизация компонентов
+### Типизация компонентов
 
-Для типизации пропсов компонентов используем interfaces.
+Для типизации пропсов компонентов используем `interface`.
 
-Если интерфейс используется только внутри одного компонента и не переиспользуется в других местах, называем его Props
+Если интерфейс используется только внутри одного компонента и не переиспользуется в других местах — называем его `Props`.
 
+```typescript
 interface Props {
-name: string;
-age: number;
+  name: string;
+  age: number;
 }
 
-const UserCard = ({ name, age }: Props) => {
-};
+const UserCard = ({ name, age }: Props) => {};
+```
 
----
+### Типизация параметров функций
 
-Типизация параметров функцый
+Если интерфейс используется только одной функцией и не переиспользуется — называем его `Params`.
 
-Если интерфейс используется только одной функцией и не переиспользуется, называем его Params
-
-Пример:
-
+```typescript
 interface Params {
-userId: string;
+  userId: string;
 }
 
 const getUser = ({ userId }: Params) => {};
+```
