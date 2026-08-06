@@ -24,7 +24,7 @@ type TextTag =
   | 'small';
 
 type TextFamily = 'halvar' | 'stolzl';
-type TextSize = '16' | '20' | '60';
+type TextSize = '16' | '20' | '40' | '60';
 type TextWeight = 'light' | 'regular' | 'bold';
 type TextLineHeight = 'normal' | '24' | '54';
 type TextColor = 'white' | 'yellow' | 'dark' | 'purple' | 'inherit';
