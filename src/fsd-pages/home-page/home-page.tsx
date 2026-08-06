@@ -1,4 +1,4 @@
-import { BenefitsSection } from '@/shared/widgets/benefits-section/benefits-section';
+import { BenefitsSection } from '@/widgets/benefits-section/benefits-section';
 
 import styles from './home-page.module.css';
 

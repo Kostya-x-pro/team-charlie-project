@@ -26,11 +26,10 @@
   --color-yellow: #fee97d;
   --color-dark: #0c090e;
   --color-purple: #9e13e0;
-
-  --opacity-muted: 0.7;
-  --opacity-full: 1;
-
   --color-hero-orange: rgb(220 132 0);
   --color-hero-purple: rgb(86 0 128);
   --color-hero-dark: rgb(20 9 26);
+
+  --opacity-muted: 0.7;
+  --opacity-full: 1;
 }
