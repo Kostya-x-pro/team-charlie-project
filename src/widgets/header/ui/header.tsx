@@ -1,5 +1,6 @@
 import LogoIcon from '@/shared/assets/icons/logo_small_icon.svg';
 import { Text } from '@/shared/ui/text';
+import Link from "next/link";
 
 import { HEADER_NAV_ITEMS } from '../model/nav-items';
 import styles from './header.module.css';
@@ -13,21 +14,21 @@ export const Header = () => {
 
       <nav className={styles.nav} aria-label='Main navigation'>
         {HEADER_NAV_ITEMS.map(({ href, label }) => (
-          <Text
-            className={styles.nav_link}
-            tag='a'
-            href={href}
-            size='20'
-            weight='bold'
-            lineHeight='normal'
-            color='yellow'
-            transform='uppercase'
-            underline
-            noWrap
-            key={href}
-          >
-            {label}
-          </Text>
+          <Link href={href} key={href} className={styles.nav_link}>
+            <Text
+
+              tag='span'
+              size='20'
+              weight='bold'
+              lineHeight='normal'
+              color='yellow'
+              transform='uppercase'
+              underline
+              noWrap
+            >
+              {label}
+            </Text>
+          </Link>
         ))}
 
         <button

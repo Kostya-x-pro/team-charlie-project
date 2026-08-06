@@ -1,4 +1,4 @@
-type SectionHref = '#team' | '#benefits' | '#join-us';
+type SectionHref = '/team' | '/benefits' | '/join-us';
 
 interface NavItem {
   label: string;
@@ -6,7 +6,7 @@ interface NavItem {
 }
 
 export const HEADER_NAV_ITEMS: NavItem[] = [
-  { label: 'Team', href: '#team' },
-  { label: 'Benefits', href: '#benefits' },
-  { label: 'Join Us', href: '#join-us' },
+  { label: 'Team', href: '/team' },
+  { label: 'Benefits', href: '/benefits' },
+  { label: 'Join Us', href: '/join-us' },
 ];

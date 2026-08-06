@@ -1,6 +1,5 @@
 import { Header } from '@/widgets/header/ui';
 import { HeroSection } from '@/widgets/hero-section/ui';
-import { MultitaskSection } from '@/widgets/multitask-section';
 
 import styles from './HomePage.module.css';
 
@@ -13,8 +12,6 @@ export const HomePage = () => {
           <HeroSection />
         </div>
       </section>
-
-      <MultitaskSection />
     </main>
   );
 };
