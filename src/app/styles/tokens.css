@@ -21,6 +21,12 @@
   --letter-spacing-display: -1.3px;
   --letter-spacing-display-accent: -1.7px;
   --letter-spacing-button: 4px;
+  --line-height-54: 54px;
+
+  --letter-spacing-normal: 0;
+  --letter-spacing-display: -1.3px;
+  --letter-spacing-display-accent: -1.7px;
+  --letter-spacing-button: 4px;
 
   --color-white: #ffffff;
   --color-yellow: #fee97d;
@@ -32,4 +38,8 @@
 
   --opacity-muted: 0.7;
   --opacity-full: 1;
+
+  --color-hero-orange: rgb(220 132 0);
+  --color-hero-purple: rgb(86 0 128);
+  --color-hero-dark: rgb(20 9 26);
 }

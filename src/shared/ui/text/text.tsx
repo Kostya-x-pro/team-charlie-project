@@ -1,10 +1,15 @@
-import type { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react';
+import {
+  createElement,
+  type ComponentPropsWithoutRef,
+  type ReactNode,
+} from 'react';
 
 import { cn } from '@/shared/lib/cn';
 
 import styles from './text.module.css';
 
 type TextTag =
+  | 'a'
   | 'p'
   | 'span'
   | 'div'
@@ -27,8 +32,8 @@ type TextAlign = 'left' | 'center' | 'right';
 type TextTransform = 'none' | 'uppercase';
 type TextLetterSpacing = 'normal' | 'display' | 'display-accent' | 'button';
 
-interface TextOwnProps {
-  tag?: TextTag;
+interface BaseProps<T extends TextTag> {
+  tag?: T;
   children: ReactNode;
   className?: string;
   family?: TextFamily;
@@ -44,10 +49,10 @@ interface TextOwnProps {
   noWrap?: boolean;
 }
 
-type TextProps<T extends ElementType = 'p'> = TextOwnProps &
-  Omit<ComponentPropsWithoutRef<T>, keyof TextOwnProps>;
+type Props<T extends TextTag = 'div'> = BaseProps<T> &
+  Omit<ComponentPropsWithoutRef<T>, keyof BaseProps<T>>;
 
-export const Text = <T extends ElementType = 'p'>(props: TextProps<T>) => {
+export const Text = <T extends TextTag = 'div'>(props: Props<T>) => {
   const {
     tag = 'div',
     children,
@@ -66,11 +71,11 @@ export const Text = <T extends ElementType = 'p'>(props: TextProps<T>) => {
     ...otherProps
   } = props;
 
-  const Component = tag ?? 'p';
-
-  return (
-    <Component
-      className={cn(
+  return createElement(
+    tag,
+    {
+      ...otherProps,
+      className: cn(
         styles.text,
         styles[`family_${family}`],
         styles[`size_${size}`],
@@ -80,14 +85,13 @@ export const Text = <T extends ElementType = 'p'>(props: TextProps<T>) => {
         styles[`align_${align}`],
         styles[`transform_${transform}`],
         styles[`letter_spacing_${letterSpacing}`],
+        styles[`letter_spacing_${letterSpacing}`],
         styles[`opacity_${opacity}`],
         underline && styles.underline,
         noWrap && styles.no_wrap,
         className,
-      )}
-      {...otherProps}
-    >
-      {children}
-    </Component>
+      ),
+    },
+    children,
   );
 };
