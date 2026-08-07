@@ -33,7 +33,7 @@ auth-service.ts
 Глобальные константы пишем в формате `SNAKE_CASE`.
 
 ```typescript
-const API_URL = "/api";
+const API_URL = '/api';
 const MAX_RETRY_COUNT = 3;
 ```
 
@@ -44,7 +44,7 @@ const MAX_RETRY_COUNT = 3;
 Локальные переменные и значения внутри функций пишем в `camelCase`.
 
 ```typescript
-const userName = "Alex";
+const userName = 'Alex';
 ```
 
 ---
@@ -147,8 +147,8 @@ interface ObjUser {}
 - комбинаций типов
 
 ```typescript
-type Name = "Alex" | "Olga" | "Max";
-type Status = "loading" | "success" | "error";
+type Name = 'Alex' | 'Olga' | 'Max';
+type Status = 'loading' | 'success' | 'error';
 ```
 
 ### Типизация компонентов
