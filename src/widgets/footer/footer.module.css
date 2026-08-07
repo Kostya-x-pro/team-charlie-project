@@ -1,0 +1,37 @@
+.footer_items {
+  display: flex;
+  gap: 20px;
+}
+
+.footer_item {
+  padding: 20px 0;
+}
+
+.footer_content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 100px;
+  max-width: max-content;
+  margin-left: auto;
+}
+
+.image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 630px;
+  height: 360px;
+  z-index: -1;
+}
+
+.footer_container {
+  position: relative;
+  z-index: 1;
+}
+
+.footer_scroll_top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

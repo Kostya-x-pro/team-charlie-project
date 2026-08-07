@@ -21,6 +21,10 @@
   font-size: var(--font-size-20);
 }
 
+.size_40 {
+  font-size: var(--font-size-40);
+}
+
 .size_60 {
   font-size: var(--font-size-60);
 }

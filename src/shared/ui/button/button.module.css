@@ -25,7 +25,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 32px;
+  gap: 40px;
 }
 
 .button_primary .button_content {
@@ -105,11 +105,15 @@
 }
 
 .button_secondary:hover,
-.button_secondary:focus-visible,
-.button_secondary.button_active {
+.button_secondary:focus-visible {
   color: var(--color-dark);
   background: var(--color-yellow);
   border-color: var(--color-dark);
+}
+
+.button_secondary.button_active {
+  color: var(--color-dark);
+  background: var(--color-yellow);
 }
 
 .button_label {
