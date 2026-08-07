@@ -3,14 +3,14 @@ import Image from 'next/image';
 import snakeImage from '@/shared/assets/images/multibenefits_page_snake.png';
 import { Text } from '@/shared/ui/text';
 
+import { BENEFIT_ITEMS } from '../../model/benefits_items';
+import { Marquee } from '../marquee/marquee';
 import styles from './benefits-section.module.css';
-import { BENEFIT_ITEMS } from './model/benefits_items';
-import { Marquee } from './ui/marquee';
 
 export const BenefitsSection = () => {
   return (
-    <section className={styles.section}>
-      <div className='container'>
+    <section className={styles.section} id='benefits'>
+      <div className={styles.section_container}>
         <Text
           className={styles.section_subtitle}
           tag='div'

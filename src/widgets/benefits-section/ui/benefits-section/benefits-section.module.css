@@ -1,17 +1,14 @@
 .section {
   position: relative;
   height: 100vh;
-  padding: 60px 0;
-  background: linear-gradient(
-    120deg,
-    #e8871e 0%,
-    #a8433f 18%,
-    #6b1f8a 38%,
-    #4a1382 52%,
-    #2e0e5c 70%,
-    #180a30 88%,
-    #0d0618 100%
-  );
+  padding: 18px 20px 28px;
+  background: var(--gradient-section-primary);
+}
+
+.section_container {
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .section_subtitle {

@@ -1,20 +1,16 @@
 .section {
-  min-height: 100vh;
-  padding: 18px 30px 28px;
+  height: 100vh;
   overflow: hidden;
-  background:
-    linear-gradient(
-      121deg,
-      var(--color-hero-dark) 3%,
-      var(--color-hero-dark) 50%,
-      rgb(34 0 50) 92%
-    ),
-    linear-gradient(
-      121deg,
-      rgb(149 0 220) 3%,
-      rgb(86 0 128) 50%,
-      rgb(34 0 50) 92%
-    );
+  background: var(--gradient-multitask-section);
+}
+
+.section_container {
+  width: 100%;
+  max-width: 1340px;
+  height: 100%;
+  min-height: 0;
+  margin: 0 auto;
+  padding: 18px 20px 28px;
 }
 
 .section_title {
@@ -50,12 +46,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 44px 16px 0;
-  background: linear-gradient(
-    67deg,
-    rgb(149 0 220) 18%,
-    rgb(86 0 128) 57%,
-    rgb(34 0 50) 89%
-  );
+  background: var(--gradient-multitask-card);
 }
 
 .main_card_text {
