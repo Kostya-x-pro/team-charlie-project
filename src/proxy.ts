@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+import { LOCALE_COOKIE_KEY } from '@/shared/config/i18n';
 import {
   isValidLocale,
   resolveLocale,
-  COOKIE_KEY,
   buildLocalizedPath,
 } from '@/shared/lib/i18n';
 
@@ -16,12 +16,12 @@ export function proxy(req: NextRequest) {
   const firstSegment = pathname.split('/')[1] ?? '';
 
   if (firstSegment && isValidLocale(firstSegment)) {
-    const cookieLocale = req.cookies.get(COOKIE_KEY)?.value;
+    const cookieLocale = req.cookies.get(LOCALE_COOKIE_KEY)?.value;
 
     if (cookieLocale !== firstSegment) {
       const response = NextResponse.next();
 
-      response.cookies.set(COOKIE_KEY, firstSegment, {
+      response.cookies.set(LOCALE_COOKIE_KEY, firstSegment, {
         path: '/',
         maxAge: 31536000,
         sameSite: 'lax',
@@ -33,7 +33,7 @@ export function proxy(req: NextRequest) {
     return NextResponse.next();
   }
 
-  const cookieLocale = req.cookies.get(COOKIE_KEY)?.value ?? '';
+  const cookieLocale = req.cookies.get(LOCALE_COOKIE_KEY)?.value ?? '';
   const acceptLanguage = req.headers.get('accept-language') ?? '';
   const resolvedLocale = resolveLocale({
     urlLocale: firstSegment,

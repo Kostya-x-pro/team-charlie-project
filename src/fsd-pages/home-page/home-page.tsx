@@ -18,7 +18,13 @@ export const HomePage = () => {
       {/* for icons */}
       <SnakeIcon className={styles.arrowIcon} aria-hidden='true' />
       {/* for images */}
-      <Image src={snakeImage} alt='Snake' loading="eager" width={200} height={200} />
+      <Image
+        src={snakeImage}
+        alt='Snake'
+        loading='eager'
+        width={200}
+        height={200}
+      />
       <h1>Team Charlie Project</h1>
 
       <h1>{t('title')}</h1>

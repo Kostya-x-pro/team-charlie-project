@@ -1,5 +1,5 @@
 import {
-  Locale,
+  type Locale,
   DEFAULT_LOCALE,
   LOCALE_COOKIE_KEY,
   LOCALE_COOKIE_MAX_AGE,
@@ -12,8 +12,6 @@ interface ResolveLocaleParams {
   cookieValue: string;
   acceptLanguage?: string;
 }
-
-export const COOKIE_KEY = LOCALE_COOKIE_KEY;
 
 export function resolveLocale({
   urlLocale,
@@ -39,5 +37,5 @@ export function resolveLocale({
 export function setLocaleCookie(locale: Locale): void {
   if (!isValidLocale(locale) || typeof document === 'undefined') return;
 
-  document.cookie = `${COOKIE_KEY}=${locale}; path=/; max-age=${LOCALE_COOKIE_MAX_AGE}; samesite=lax`;
+  document.cookie = `${LOCALE_COOKIE_KEY}=${locale}; path=/; max-age=${LOCALE_COOKIE_MAX_AGE}; samesite=lax`;
 }

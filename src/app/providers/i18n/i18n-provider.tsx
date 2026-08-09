@@ -2,9 +2,12 @@
 
 import { ReactNode, useRef } from 'react';
 
+import { notFound } from 'next/navigation';
+
 import { I18nextProvider } from 'react-i18next';
 
-import type { Locale } from '@/shared/config/i18n';
+import { type Locale } from '@/shared/config/i18n';
+import { isValidLocale } from '@/shared/lib/i18n';
 import { createI18nInstance } from '@/shared/lib/i18n/instance';
 
 interface I18nProviderProps {
@@ -13,6 +16,10 @@ interface I18nProviderProps {
 }
 
 export const I18nProvider = ({ lang, children }: I18nProviderProps) => {
+  if (!isValidLocale(lang)) {
+    notFound();
+  }
+
   const instanceRef = useRef<ReturnType<typeof createI18nInstance> | null>(
     null,
   );
