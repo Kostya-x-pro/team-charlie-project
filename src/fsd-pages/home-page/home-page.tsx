@@ -5,7 +5,6 @@ import { MultitaskSection } from '@/widgets/multitask-section';
 import styles from './home-page.module.css';
 
 export const HomePage = () => {
-
   return (
     <main className={styles.page}>
       <section className={styles.first_section} aria-label='Hero section'>
