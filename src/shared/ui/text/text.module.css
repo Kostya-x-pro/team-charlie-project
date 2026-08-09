@@ -2,7 +2,7 @@
   margin: 0;
   word-break: break-word;
   font-style: normal;
-  letter-spacing: 0;
+  letter-spacing: var(--letter-spacing-normal);
 }
 
 .family_halvar {
@@ -19,6 +19,10 @@
 
 .size_20 {
   font-size: var(--font-size-20);
+}
+
+.size_60 {
+  font-size: var(--font-size-60);
 }
 
 .weight_light {
@@ -39,6 +43,10 @@
 
 .line_height_24 {
   line-height: var(--line-height-24);
+}
+
+.line_height_54 {
+  line-height: var(--line-height-54);
 }
 
 .color_white {
@@ -79,6 +87,22 @@
 
 .transform_uppercase {
   text-transform: uppercase;
+}
+
+.letter_spacing_normal {
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+.letter_spacing_display {
+  letter-spacing: var(--letter-spacing-display);
+}
+
+.letter_spacing_display-accent {
+  letter-spacing: var(--letter-spacing-display-accent);
+}
+
+.letter_spacing_button {
+  letter-spacing: var(--letter-spacing-button);
 }
 
 .opacity_70 {
