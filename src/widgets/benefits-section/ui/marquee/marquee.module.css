@@ -1,12 +1,12 @@
 .marquee {
   position: absolute;
-  bottom: 50px;
+  top: 585.76px;
   width: 100%;
-  padding: 18px 0;
+  padding: 8px 0;
   overflow: hidden;
   border-top: 2px solid var(--color-yellow);
   border-bottom: 2px solid var(--color-yellow);
-  transform: rotate(1.5deg);
+  transform: rotate(1deg);
 }
 
 .marquee_track {

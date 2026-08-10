@@ -14,7 +14,7 @@ export const BenefitsSection = () => {
         <Text
           className={styles.section_subtitle}
           tag='div'
-          size='40'
+          size='30'
           weight='bold'
           lineHeight='normal'
           color='yellow'
@@ -31,9 +31,9 @@ export const BenefitsSection = () => {
             <Text
               className={styles.section_title}
               tag='h2'
-              size='50'
+              size='40'
               weight='bold'
-              lineHeight='54'
+              lineHeight='40'
               color='white'
               letterSpacing='display'
               family='halvar'
@@ -41,9 +41,9 @@ export const BenefitsSection = () => {
               Results can only be
               <Text
                 tag='span'
-                size='50'
+                size='40'
                 weight='bold'
-                lineHeight='54'
+                lineHeight='40'
                 color='yellow'
                 letterSpacing='display-accent'
                 noWrap
@@ -57,7 +57,7 @@ export const BenefitsSection = () => {
               className={styles.section_description}
               tag='p'
               family='halvar'
-              size='20'
+              size='16'
               weight='regular'
               lineHeight='24'
               color='white'

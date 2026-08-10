@@ -19,9 +19,9 @@ export const MultitaskSection = () => {
           id='multitask-title'
           className={styles.section_title}
           tag='h2'
-          size='20'
+          size='30'
           weight='bold'
-          lineHeight='normal'
+          lineHeight='27'
           color='yellow'
           align='right'
           transform='uppercase'

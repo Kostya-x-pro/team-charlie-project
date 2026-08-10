@@ -24,9 +24,9 @@ type TextTag =
   | 'small';
 
 type TextFamily = 'halvar' | 'stolzl';
-type TextSize = '16' | '20' | '40' | '50' | '60' | '70';
+type TextSize = '16' | '20' | '30' | '40' | '50';
 type TextWeight = 'light' | 'regular' | 'bold';
-type TextLineHeight = 'normal' | '24' | '54';
+type TextLineHeight = 'normal' | '24' | '27' | '40' | '54';
 type TextColor = 'white' | 'yellow' | 'dark' | 'purple' | 'inherit';
 type TextAlign = 'left' | 'center' | 'right';
 type TextTransform = 'none' | 'uppercase';

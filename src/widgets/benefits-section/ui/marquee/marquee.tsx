@@ -21,7 +21,7 @@ export const Marquee = () => {
                   className={styles.marquee_text}
                   tag='span'
                   family='halvar'
-                  size='70'
+                  size='50'
                   weight='light'
                   lineHeight='normal'
                   letterSpacing='display-accent'

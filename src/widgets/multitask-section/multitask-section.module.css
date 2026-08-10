@@ -5,18 +5,13 @@
 }
 
 .section_container {
-  width: 100%;
   max-width: 1340px;
-  height: 100%;
-  min-height: 0;
   margin: 0 auto;
-  padding: 18px 20px 28px;
+  padding: 20px 30px;
 }
 
 .section_title {
-  margin-bottom: 28px;
-  font-size: 30px;
-  line-height: 27px;
+  margin-bottom: 30px;
   text-align: right;
 }
 
