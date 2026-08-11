@@ -1,4 +1,8 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react';
+import type {
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  ReactNode,
+} from 'react';
 
 import ArrowIcon from '@/shared/assets/icons/Arrow.svg';
 import { cn } from '@/shared/lib/cn';
@@ -8,13 +12,25 @@ import styles from './button.module.css';
 type ButtonVariant = 'primary' | 'secondary';
 type ButtonIconPosition = 'left' | 'right';
 
-interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+type CommonProps = {
   children: ReactNode;
   variant?: ButtonVariant;
   active?: boolean;
   withIcon?: boolean;
   iconPosition?: ButtonIconPosition;
-}
+};
+
+type ButtonAsButton = CommonProps &
+  ButtonHTMLAttributes<HTMLButtonElement> & {
+    href?: undefined;
+  };
+
+type ButtonAsLink = CommonProps &
+  AnchorHTMLAttributes<HTMLAnchorElement> & {
+    href: string;
+  };
+
+type Props = ButtonAsButton | ButtonAsLink;
 
 export const Button = (props: Props) => {
   const {
@@ -24,28 +40,23 @@ export const Button = (props: Props) => {
     withIcon = false,
     iconPosition = 'right',
     className,
-    type = 'button',
-    disabled,
+    href,
     ...otherProps
   } = props;
+
   const isPrimary = variant === 'primary';
   const isSecondary = variant === 'secondary';
   const hasIcon = isSecondary || withIcon;
 
-  return (
-    <button
-      className={cn(
-        styles.button,
-        styles[`button_${variant}`],
-        active && styles.button_active,
-        disabled && styles.button_disabled,
-        className,
-      )}
-      type={type}
-      disabled={disabled}
-      aria-pressed={isSecondary ? active : undefined}
-      {...otherProps}
-    >
+  const sharedClassName = cn(
+    styles.button,
+    styles[`button_${variant}`],
+    active && styles.button_active,
+    className,
+  );
+
+  const content = (
+    <>
       {isPrimary && (
         <>
           <span className={styles.button_top} aria-hidden='true' />
@@ -67,6 +78,36 @@ export const Button = (props: Props) => {
           <ArrowIcon className={styles.button_icon} aria-hidden='true' />
         )}
       </span>
+    </>
+  );
+
+  if (href) {
+    const anchorProps = otherProps as AnchorHTMLAttributes<HTMLAnchorElement>;
+
+    return (
+      <a
+        href={href}
+        className={cn(sharedClassName, anchorProps.className)}
+        aria-pressed={isSecondary ? active : undefined}
+        {...anchorProps}
+      >
+        {content}
+      </a>
+    );
+  }
+
+  const buttonProps = otherProps as ButtonHTMLAttributes<HTMLButtonElement>;
+  const { type = 'button', disabled } = buttonProps;
+
+  return (
+    <button
+      type={type}
+      disabled={disabled}
+      className={cn(sharedClassName, disabled && styles.button_disabled)}
+      aria-pressed={isSecondary ? active : undefined}
+      {...buttonProps}
+    >
+      {content}
     </button>
   );
 };
