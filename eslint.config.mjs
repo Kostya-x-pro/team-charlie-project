@@ -126,6 +126,16 @@ const eslintConfig = defineConfig([
     },
   },
   {
+    files: [
+      'src/app/**/layout.tsx',
+      'src/app/**/page.tsx',
+      'src/app/**/not-found.tsx',
+    ],
+    rules: {
+      'react-refresh/only-export-components': 'off',
+    },
+  },
+  {
     files: ['src/shared/lib/cn.ts'],
     rules: {
       'no-restricted-imports': [
