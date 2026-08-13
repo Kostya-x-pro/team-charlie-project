@@ -1,3 +1,74 @@
 {
-  "title": "Team Charlie Project"
+  "header": {
+    "homeLabel": "Home",
+    "navigationLabel": "Main navigation",
+    "navigation": {
+      "team": "Team",
+      "benefits": "Benefits",
+      "joinUs": "Join Us"
+    },
+    "language": {
+  "switchLabel": "Switch language",
+  "en": "Eng",
+  "ru": "Rus"
+}
+  },
+  "hero": {
+    "title": {
+      "firstLine": "Practice",
+      "secondLine": "Makes",
+      "accent": "Profit"
+    },
+    "description": {
+      "firstLine": "We provide effective solutions, tested and refined",
+      "secondLine": "on our own products and ad budgets"
+    },
+    "action": "Get in Touch",
+    "socialsLabel": "Social links"
+  },
+  "multitask": {
+    "title": "Multi-tasks",
+    "intro": {
+      "beforeAccent": "We run an",
+      "accent": "in-house team",
+      "afterAccent": "of media buyers, designers, creatives, developers, and copywriters — no middlemen, no outsourcing"
+    },
+    "cards": {
+      "flexible": {
+        "title": "Flexible infrastructure",
+        "description": "Custom tools, fast integrations and scalable architecture"
+      },
+      "creatives": {
+        "title": "High-performing creatives",
+        "description": "Scroll-stopping ads tailored to your vertical"
+      },
+      "copywriting": {
+        "title": "Compelling copywriting",
+        "description": "Conversion-focused messaging for every funnel step"
+      },
+      "mediaBuying": {
+        "title": "Adaptive media buying",
+        "description": "No wasted budgets — we test, tweak, and scale"
+      }
+    }
+  },
+  "benefits": {
+    "title": "Multi-benefits",
+    "heading": {
+      "beforeAccent": "Results can only be",
+      "accent": "guaranteed",
+      "afterAccent": "when you control every step"
+    },
+    "description": "That’s why we built a full-time in-house team and custom infrastructure — tailored for every task, tested daily in the sweepstakes vertical",
+    "items": {
+      "outsourcing": "We take on outsourced projects across any niche — from iGaming and dating to e-commerce and recruitment",
+      "proven": "We deliver what has already proven effective — many times over",
+      "experience": "We don’t learn at the client’s expense"
+    }
+  },
+  "marquee": "Dream big earn bigger!",
+  "notFound": {
+    "title": "Page not found",
+    "back": "Oops, take me back"
+  }
 }
