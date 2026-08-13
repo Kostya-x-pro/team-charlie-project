@@ -3,18 +3,18 @@ import Image from 'next/image';
 import snakeImage from '@/shared/assets/images/multibenefits_page_snake.png';
 import { Text } from '@/shared/ui/text';
 
+import { BENEFIT_ITEMS } from '../../model/benefits_items';
+import { Marquee } from '../marquee/marquee';
 import styles from './benefits-section.module.css';
-import { BENEFIT_ITEMS } from './model/benefits_items';
-import { Marquee } from './ui/marquee';
 
 export const BenefitsSection = () => {
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id='benefits'>
       <div className='container'>
         <Text
           className={styles.section_subtitle}
           tag='div'
-          size='40'
+          size='30'
           weight='bold'
           lineHeight='normal'
           color='yellow'
@@ -31,9 +31,9 @@ export const BenefitsSection = () => {
             <Text
               className={styles.section_title}
               tag='h2'
-              size='50'
+              size='40'
               weight='bold'
-              lineHeight='54'
+              lineHeight='40'
               color='white'
               letterSpacing='display'
               family='halvar'
@@ -41,9 +41,9 @@ export const BenefitsSection = () => {
               Results can only be
               <Text
                 tag='span'
-                size='50'
+                size='40'
                 weight='bold'
-                lineHeight='54'
+                lineHeight='40'
                 color='yellow'
                 letterSpacing='display-accent'
                 noWrap
@@ -57,7 +57,7 @@ export const BenefitsSection = () => {
               className={styles.section_description}
               tag='p'
               family='halvar'
-              size='20'
+              size='16'
               weight='regular'
               lineHeight='24'
               color='white'

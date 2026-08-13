@@ -1,21 +1,12 @@
 .section {
   position: relative;
   height: 100vh;
-  padding: 60px 0;
-  background: linear-gradient(
-    120deg,
-    #e8871e 0%,
-    #a8433f 18%,
-    #6b1f8a 38%,
-    #4a1382 52%,
-    #2e0e5c 70%,
-    #180a30 88%,
-    #0d0618 100%
-  );
+  padding-block: 20px;
+  background: var(--gradient-section-primary);
 }
 
 .section_subtitle {
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 
 .section_title {
@@ -40,7 +31,7 @@
 
 .section_list_wrapper {
   position: relative;
-  margin-top: 176px;
+  margin-top: 153px;
 }
 
 .section_image {
