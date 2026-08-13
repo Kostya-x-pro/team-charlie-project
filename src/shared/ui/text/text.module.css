@@ -21,6 +21,18 @@
   font-size: var(--font-size-20);
 }
 
+.size_30 {
+  font-size: var(--font-size-30);
+}
+
+.size_40 {
+  font-size: var(--font-size-40);
+}
+
+.size_50 {
+  font-size: var(--font-size-50);
+}
+
 .size_60 {
   font-size: var(--font-size-60);
 }
@@ -43,6 +55,14 @@
 
 .line_height_24 {
   line-height: var(--line-height-24);
+}
+
+.line_height_27 {
+  line-height: var(--line-height-27);
+}
+
+.line_height_40 {
+  line-height: var(--line-height-40);
 }
 
 .line_height_54 {

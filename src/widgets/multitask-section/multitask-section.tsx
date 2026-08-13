@@ -14,87 +14,89 @@ export const MultitaskSection = () => {
       className={styles.section}
       aria-labelledby='multitask-title'
     >
-      <Text
-        id='multitask-title'
-        className={styles.section_title}
-        tag='h2'
-        size='20'
-        weight='bold'
-        lineHeight='normal'
-        color='yellow'
-        align='right'
-        transform='uppercase'
-        letterSpacing='display-accent'
-        noWrap
-      >
-        Multi-tasks
-      </Text>
+      <div className='container'>
+        <Text
+          id='multitask-title'
+          className={styles.section_title}
+          tag='h2'
+          size='30'
+          weight='bold'
+          lineHeight='27'
+          color='yellow'
+          align='right'
+          transform='uppercase'
+          letterSpacing='display-accent'
+          noWrap
+        >
+          Multi-tasks
+        </Text>
 
-      <div className={styles.content}>
-        <article className={styles.main_card}>
-          <Text
-            className={styles.main_card_text}
-            tag='p'
-            size='20'
-            weight='bold'
-            lineHeight='24'
-            color='white'
-          >
-            We run an{' '}
+        <div className={styles.content}>
+          <article className={styles.main_card}>
             <Text
-              tag='span'
+              className={styles.main_card_text}
+              tag='p'
               size='20'
               weight='bold'
               lineHeight='24'
-              color='yellow'
+              color='white'
             >
-              in-house team
-            </Text>{' '}
-            of media buyers, designers, creatives, developers, and copywriters —
-            no middlemen, no outsourcing
-          </Text>
-
-          <Image
-            className={styles.image}
-            src={multitaskSnakeImage}
-            alt=''
-            width={507}
-            height={394}
-          />
-        </article>
-
-        <div className={styles.cards_grid}>
-          {MULTI_TASK_CARDS.map(card => (
-            <article
-              className={cn(styles.task_card, styles[card.className])}
-              key={`${card.title}-${card.className}`}
-            >
+              We run an{' '}
               <Text
-                className={styles.card_title}
-                tag='h3'
+                tag='span'
                 size='20'
                 weight='bold'
                 lineHeight='24'
                 color='yellow'
-                transform='uppercase'
               >
-                {card.title}
-              </Text>
+                in-house team
+              </Text>{' '}
+              of media buyers, designers, creatives, developers, and copywriters
+              — no middlemen, no outsourcing
+            </Text>
 
-              <Text
-                className={styles.card_description}
-                tag='p'
-                family='stolzl'
-                size='20'
-                weight='regular'
-                lineHeight='24'
-                color='white'
-                opacity='70'
+            <Image
+              className={styles.image}
+              src={multitaskSnakeImage}
+              alt=''
+              width={507}
+              height={394}
+            />
+          </article>
+
+          <div className={styles.cards_grid}>
+            {MULTI_TASK_CARDS.map(card => (
+              <article
+                className={cn(styles.task_card, styles[card.className])}
+                key={`${card.title}-${card.className}`}
               >
-                {card.description}
-              </Text>
-            </article>
-          ))}
+                <Text
+                  className={styles.card_title}
+                  tag='h3'
+                  size='20'
+                  weight='bold'
+                  lineHeight='24'
+                  color='yellow'
+                  transform='uppercase'
+                >
+                  {card.title}
+                </Text>
+
+                <Text
+                  className={styles.card_description}
+                  tag='p'
+                  family='stolzl'
+                  size='20'
+                  weight='regular'
+                  lineHeight='24'
+                  color='white'
+                  opacity='70'
+                >
+                  {card.description}
+                </Text>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>
