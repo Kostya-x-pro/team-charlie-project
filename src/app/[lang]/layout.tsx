@@ -2,6 +2,8 @@ import type { ReactNode } from 'react';
 
 import { notFound } from 'next/navigation';
 
+import type { Metadata } from 'next';
+
 import { I18nProvider } from '@/app/providers/i18n/i18n-provider';
 import '@/app/styles/globals.css';
 
@@ -12,6 +14,10 @@ interface Props {
   children: ReactNode;
   params: Promise<{ lang: string }>;
 }
+
+export const metadata: Metadata = {
+  title: 'Team Charlie Project',
+};
 
 export function generateStaticParams() {
   return LOCALES.map(lang => ({ lang }));

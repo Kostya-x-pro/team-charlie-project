@@ -151,6 +151,12 @@ const eslintConfig = defineConfig([
       ],
     },
   },
+  {
+    files: ['src/**/*.test.{ts,tsx}'],
+    rules: {
+      'react-refresh/only-export-components': 'off',
+    },
+  },
   eslintConfigPrettier,
   // Override default ignores of eslint-config-next.
   globalIgnores([

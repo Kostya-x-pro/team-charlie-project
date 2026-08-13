@@ -31,5 +31,10 @@ npm-debug.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# playwright
+/playwright-report
+/test-results
+/blob-report
+
 #custom
 AGENTS.md
