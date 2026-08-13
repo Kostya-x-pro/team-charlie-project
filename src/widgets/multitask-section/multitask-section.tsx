@@ -1,4 +1,7 @@
+'use client';
 import Image from 'next/image';
+
+import { useTranslation } from 'react-i18next';
 
 import multitaskSnakeImage from '@/shared/assets/images/multitask_page_snake.png';
 import { cn } from '@/shared/lib/cn';
@@ -8,6 +11,7 @@ import { MULTI_TASK_CARDS } from './model/multitask-card';
 import styles from './multitask-section.module.css';
 
 export const MultitaskSection = () => {
+  const { t } = useTranslation();
   return (
     <section
       id='team'
@@ -28,7 +32,7 @@ export const MultitaskSection = () => {
           letterSpacing='display-accent'
           noWrap
         >
-          Multi-tasks
+          {t('multitask.title')}
         </Text>
 
         <div className={styles.content}>
@@ -41,7 +45,7 @@ export const MultitaskSection = () => {
               lineHeight='24'
               color='white'
             >
-              We run an{' '}
+              {t('multitask.intro.beforeAccent')}{' '}
               <Text
                 tag='span'
                 size='20'
@@ -49,10 +53,9 @@ export const MultitaskSection = () => {
                 lineHeight='24'
                 color='yellow'
               >
-                in-house team
+                {t('multitask.intro.accent')}
               </Text>{' '}
-              of media buyers, designers, creatives, developers, and copywriters
-              — no middlemen, no outsourcing
+              {t('multitask.intro.afterAccent')}
             </Text>
 
             <Image
@@ -68,7 +71,7 @@ export const MultitaskSection = () => {
             {MULTI_TASK_CARDS.map(card => (
               <article
                 className={cn(styles.task_card, styles[card.className])}
-                key={`${card.title}-${card.className}`}
+                key={card.className}
               >
                 <Text
                   className={styles.card_title}
@@ -79,7 +82,7 @@ export const MultitaskSection = () => {
                   color='yellow'
                   transform='uppercase'
                 >
-                  {card.title}
+                  {t(`multitask.cards.${card.translationKey}.title`)}
                 </Text>
 
                 <Text
@@ -92,7 +95,7 @@ export const MultitaskSection = () => {
                   color='white'
                   opacity='70'
                 >
-                  {card.description}
+                  {t(`multitask.cards.${card.translationKey}.description`)}
                 </Text>
               </article>
             ))}

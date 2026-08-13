@@ -1,1 +1,0 @@
-export { Join as default } from '@/fsd-pages/join';
