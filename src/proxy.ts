@@ -1,14 +1,15 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse, type NextRequest } from 'next/server';
 
-import { LOCALE_COOKIE_KEY } from '@/shared/config/i18n';
 import {
-  isValidLocale,
-  resolveLocale,
-  buildLocalizedPath,
-} from '@/shared/lib/i18n';
+  LOCALE_COOKIE_KEY,
+  LOCALE_COOKIE_MAX_AGE,
+} from '@/shared/config/i18n/config';
+import { buildLocalizedPath } from '@/shared/lib/i18n/build-localized-path';
+import { isValidLocale } from '@/shared/lib/i18n/is-valid-locale';
+import { resolveLocale } from '@/shared/lib/i18n/resolve-locale';
 
 export const config = {
-  matcher: ['/((?!_next/static|_next/image|favicon.ico|.*\\..*).*)'],
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico|.*\\..*).*)'],
 };
 
 export function proxy(req: NextRequest) {
@@ -23,7 +24,7 @@ export function proxy(req: NextRequest) {
 
       response.cookies.set(LOCALE_COOKIE_KEY, firstSegment, {
         path: '/',
-        maxAge: 31536000,
+        maxAge: LOCALE_COOKIE_MAX_AGE,
         sameSite: 'lax',
       });
 

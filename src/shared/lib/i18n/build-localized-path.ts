@@ -1,4 +1,4 @@
-import type { Locale } from '@/shared/config/i18n';
+import type { Locale } from '@/shared/config/i18n/config';
 
 import { isValidLocale } from './is-valid-locale';
 

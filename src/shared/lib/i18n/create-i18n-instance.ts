@@ -3,7 +3,7 @@ import en from 'public/locales/en/translation.json';
 import ru from 'public/locales/ru/translation.json';
 import { initReactI18next } from 'react-i18next';
 
-import { DEFAULT_LOCALE, type Locale } from '@/shared/config/i18n';
+import { DEFAULT_LOCALE, type Locale } from '@/shared/config/i18n/config';
 
 const RESOURCES = {
   en: { translation: en },

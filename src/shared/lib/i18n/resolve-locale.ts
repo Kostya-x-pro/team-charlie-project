@@ -1,9 +1,4 @@
-import {
-  type Locale,
-  DEFAULT_LOCALE,
-  LOCALE_COOKIE_KEY,
-  LOCALE_COOKIE_MAX_AGE,
-} from '@/shared/config/i18n';
+import { DEFAULT_LOCALE, type Locale } from '@/shared/config/i18n/config';
 
 import { isValidLocale } from './is-valid-locale';
 
@@ -32,10 +27,4 @@ export function resolveLocale({
   }
 
   return DEFAULT_LOCALE;
-}
-
-export function setLocaleCookie(locale: Locale): void {
-  if (!isValidLocale(locale) || typeof document === 'undefined') return;
-
-  document.cookie = `${LOCALE_COOKIE_KEY}=${locale}; path=/; max-age=${LOCALE_COOKIE_MAX_AGE}; samesite=lax`;
 }
