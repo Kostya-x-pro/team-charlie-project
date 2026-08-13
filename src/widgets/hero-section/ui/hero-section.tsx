@@ -1,6 +1,9 @@
+'use client';
 import type { ReactNode } from 'react';
 
 import Image from 'next/image';
+
+import { useTranslation } from 'react-i18next';
 
 import snakeImage from '@/shared/assets/images/hero_page_snake.png';
 import { cn } from '@/shared/lib/cn';
@@ -15,8 +18,13 @@ interface Props {
 }
 
 export const HeroSection = ({ header }: Props) => {
+  const { t } = useTranslation();
   return (
-    <section className={styles.section} aria-labelledby='home-hero-title'>
+    <section
+      id='home'
+      className={styles.section}
+      aria-labelledby='home-hero-title'
+    >
       <div className={cn('container', styles.hero_container)}>
         {header}
         <div className={styles.hero}>
@@ -33,9 +41,9 @@ export const HeroSection = ({ header }: Props) => {
                 transform='uppercase'
                 letterSpacing='display'
               >
-                Practice
+                {t('hero.title.firstLine')}
                 <br />
-                Makes{' '}
+                {t('hero.title.secondLine')}{' '}
                 <Text
                   tag='span'
                   size='60'
@@ -46,7 +54,7 @@ export const HeroSection = ({ header }: Props) => {
                   letterSpacing='display-accent'
                   noWrap
                 >
-                  Profit
+                  {t('hero.title.accent')}
                 </Text>
               </Text>
 
@@ -59,27 +67,27 @@ export const HeroSection = ({ header }: Props) => {
                 lineHeight='24'
                 color='white'
               >
-                We provide effective solutions, tested and refined
+                {t('hero.description.firstLine')}
                 <br />
-                on our own products and ad budgets
+                {t('hero.description.secondLine')}
               </Text>
             </div>
 
-            <Button variant='primary'>Get in Touch</Button>
+            <Button variant='primary'>{t('hero.action')}</Button>
           </div>
 
           <div className={styles.snake_wrapper} aria-hidden='true'>
             <Image
               className={styles.snake_image}
               src={snakeImage}
-              alt='background snake'
+              alt=''
               fill
               preload
               sizes='(max-width: 767px) 115vw, (max-width: 1023px) 82vw, 60vw'
             />
           </div>
 
-          <div className={styles.socials} aria-label='Social links'>
+          <div className={styles.socials} aria-label={t('hero.socialsLabel')}>
             {SOCIAL_ITEMS.map(({ label, Icon }) => (
               <button
                 className={styles.social_button}

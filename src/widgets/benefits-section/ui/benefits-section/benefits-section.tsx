@@ -1,13 +1,18 @@
+'use client';
+
 import Image from 'next/image';
+
+import { useTranslation } from 'react-i18next';
 
 import snakeImage from '@/shared/assets/images/multibenefits_page_snake.png';
 import { Text } from '@/shared/ui/text';
 
-import { BENEFIT_ITEMS } from '../../model/benefits_items';
+import { BENEFIT_ITEM_KEYS } from '../../model/benefits-items';
 import { Marquee } from '../marquee/marquee';
 import styles from './benefits-section.module.css';
 
 export const BenefitsSection = () => {
+  const { t } = useTranslation();
   return (
     <section className={styles.section} id='benefits'>
       <div className='container'>
@@ -23,7 +28,7 @@ export const BenefitsSection = () => {
           letterSpacing='display-accent'
           noWrap
         >
-          MULTI-BENEFITS
+          {t('benefits.title')}
         </Text>
 
         <div className={styles.section_main}>
@@ -38,7 +43,7 @@ export const BenefitsSection = () => {
               letterSpacing='display'
               family='halvar'
             >
-              Results can only be
+              {t('benefits.heading.beforeAccent')}{' '}
               <Text
                 tag='span'
                 size='40'
@@ -48,10 +53,9 @@ export const BenefitsSection = () => {
                 letterSpacing='display-accent'
                 noWrap
               >
-                {' '}
-                guaranteed{' '}
-              </Text>
-              when you control every step
+                {t('benefits.heading.accent')}
+              </Text>{' '}
+              {t('benefits.heading.afterAccent')}
             </Text>
             <Text
               className={styles.section_description}
@@ -62,19 +66,17 @@ export const BenefitsSection = () => {
               lineHeight='24'
               color='white'
             >
-              That’s why we built a full-time in-house team and custom
-              infrastructure – tailored for every task, tested daily in the
-              sweepstakes vertical
+              {t('benefits.description')}
             </Text>
           </div>
 
           <div className={styles.section_list_wrapper}>
             <div className={styles.section_image}>
-              <Image src={snakeImage} alt='Snake Image' fill preload />
+              <Image src={snakeImage} alt='' fill preload />
             </div>
             <ul className={styles.section_list}>
-              {BENEFIT_ITEMS.map(item => (
-                <li className={styles.section_item} key={item}>
+              {BENEFIT_ITEM_KEYS.map(itemKey => (
+                <li className={styles.section_item} key={itemKey}>
                   <Text
                     tag='p'
                     family='halvar'
@@ -83,7 +85,7 @@ export const BenefitsSection = () => {
                     lineHeight='24'
                     color='white'
                   >
-                    {item}
+                    {t(`benefits.items.${itemKey}`)}
                   </Text>
                 </li>
               ))}

@@ -51,6 +51,17 @@
   outline-offset: 4px;
 }
 
+.language_switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+}
+
 .language_button {
-  padding-right: 0;
+  padding: 10px 0;
+}
+
+.language_separator {
+  margin-left: 4px;
+  color: var(--color-yellow);
 }

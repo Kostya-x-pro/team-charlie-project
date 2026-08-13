@@ -1,12 +1,16 @@
 type SectionHref = '#team' | '#benefits' | '#join-us';
+type TranslationKey =
+  | 'header.navigation.team'
+  | 'header.navigation.benefits'
+  | 'header.navigation.joinUs';
 
 interface NavItem {
-  label: string;
+  translationKey: TranslationKey;
   href: SectionHref;
 }
 
 export const HEADER_NAV_ITEMS: NavItem[] = [
-  { label: 'Team', href: '#team' },
-  { label: 'Benefits', href: '#benefits' },
-  { label: 'Join Us', href: '#join-us' },
+  { translationKey: 'header.navigation.team', href: '#team' },
+  { translationKey: 'header.navigation.benefits', href: '#benefits' },
+  { translationKey: 'header.navigation.joinUs', href: '#join-us' },
 ];
