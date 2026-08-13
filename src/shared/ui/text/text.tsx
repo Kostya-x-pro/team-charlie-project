@@ -1,10 +1,15 @@
-import type { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react';
+import {
+  createElement,
+  type ComponentPropsWithoutRef,
+  type ReactNode,
+} from 'react';
 
 import { cn } from '@/shared/lib/cn';
 
 import styles from './text.module.css';
 
 type TextTag =
+  | 'a'
   | 'p'
   | 'span'
   | 'div'
@@ -19,15 +24,16 @@ type TextTag =
   | 'small';
 
 type TextFamily = 'halvar' | 'stolzl';
-type TextSize = '16' | '20';
+type TextSize = '16' | '20' | '30' | '40' | '50' | '60';
 type TextWeight = 'light' | 'regular' | 'bold';
-type TextLineHeight = 'normal' | '24';
+type TextLineHeight = 'normal' | '24' | '27' | '40' | '54';
 type TextColor = 'white' | 'yellow' | 'dark' | 'purple' | 'inherit';
 type TextAlign = 'left' | 'center' | 'right';
 type TextTransform = 'none' | 'uppercase';
+type TextLetterSpacing = 'normal' | 'display' | 'display-accent' | 'button';
 
-interface TextOwnProps {
-  tag?: TextTag;
+interface BaseProps<T extends TextTag> {
+  tag?: T;
   children: ReactNode;
   className?: string;
   family?: TextFamily;
@@ -37,15 +43,16 @@ interface TextOwnProps {
   color?: TextColor;
   align?: TextAlign;
   transform?: TextTransform;
+  letterSpacing?: TextLetterSpacing;
   underline?: boolean;
   opacity?: '70' | '100';
   noWrap?: boolean;
 }
 
-type TextProps<T extends ElementType = 'p'> = TextOwnProps &
-  Omit<ComponentPropsWithoutRef<T>, keyof TextOwnProps>;
+type Props<T extends TextTag = 'div'> = BaseProps<T> &
+  Omit<ComponentPropsWithoutRef<T>, keyof BaseProps<T>>;
 
-export const Text = <T extends ElementType = 'p'>(props: TextProps<T>) => {
+export const Text = <T extends TextTag = 'div'>(props: Props<T>) => {
   const {
     tag = 'div',
     children,
@@ -57,17 +64,18 @@ export const Text = <T extends ElementType = 'p'>(props: TextProps<T>) => {
     color = 'inherit',
     align = 'left',
     transform = 'none',
+    letterSpacing = 'normal',
     underline = false,
     opacity = '100',
     noWrap = false,
     ...otherProps
   } = props;
 
-  const Component = tag ?? 'p';
-
-  return (
-    <Component
-      className={cn(
+  return createElement(
+    tag,
+    {
+      ...otherProps,
+      className: cn(
         styles.text,
         styles[`family_${family}`],
         styles[`size_${size}`],
@@ -76,14 +84,14 @@ export const Text = <T extends ElementType = 'p'>(props: TextProps<T>) => {
         styles[`color_${color}`],
         styles[`align_${align}`],
         styles[`transform_${transform}`],
+        styles[`letter_spacing_${letterSpacing}`],
+        styles[`letter_spacing_${letterSpacing}`],
         styles[`opacity_${opacity}`],
         underline && styles.underline,
         noWrap && styles.no_wrap,
         className,
-      )}
-      {...otherProps}
-    >
-      {children}
-    </Component>
+      ),
+    },
+    children,
   );
 };
