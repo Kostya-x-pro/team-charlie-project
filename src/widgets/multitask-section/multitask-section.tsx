@@ -14,7 +14,7 @@ export const MultitaskSection = () => {
       className={styles.section}
       aria-labelledby='multitask-title'
     >
-      <div className={styles.section_container}>
+      <div className='container'>
         <Text
           id='multitask-title'
           className={styles.section_title}

@@ -1,13 +1,8 @@
 .section {
   position: relative;
   height: 100vh;
+  padding-block: 20px;
   background: var(--gradient-section-primary);
-}
-
-.section_container {
-  max-width: 1340px;
-  margin: 0 auto;
-  padding: 20px 30px;
 }
 
 .section_subtitle {

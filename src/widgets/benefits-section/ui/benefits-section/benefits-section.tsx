@@ -10,7 +10,7 @@ import styles from './benefits-section.module.css';
 export const BenefitsSection = () => {
   return (
     <section className={styles.section} id='benefits'>
-      <div className={styles.section_container}>
+      <div className='container'>
         <Text
           className={styles.section_subtitle}
           tag='div'

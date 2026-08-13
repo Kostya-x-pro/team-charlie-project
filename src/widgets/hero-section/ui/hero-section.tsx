@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import Image from 'next/image';
 
 import snakeImage from '@/shared/assets/images/hero_page_snake.png';
+import { cn } from '@/shared/lib/cn';
 import { Button } from '@/shared/ui/button';
 import { Text } from '@/shared/ui/text';
 
@@ -16,7 +17,7 @@ interface Props {
 export const HeroSection = ({ header }: Props) => {
   return (
     <section className={styles.section} aria-labelledby='home-hero-title'>
-      <div className={styles.section_container}>
+      <div className={cn('container', styles.hero_container)}>
         {header}
         <div className={styles.hero}>
           <div className={styles.hero_content}>

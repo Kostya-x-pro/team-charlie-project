@@ -33,6 +33,10 @@
   font-size: var(--font-size-50);
 }
 
+.size_60 {
+  font-size: var(--font-size-60);
+}
+
 .weight_light {
   font-weight: var(--font-weight-light);
 }

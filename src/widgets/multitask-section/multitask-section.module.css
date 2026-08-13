@@ -1,13 +1,8 @@
 .section {
   height: 100vh;
+  padding-block: 20px;
   overflow: hidden;
   background: var(--gradient-multitask-section);
-}
-
-.section_container {
-  max-width: 1340px;
-  margin: 0 auto;
-  padding: 20px 30px;
 }
 
 .section_title {
@@ -24,7 +19,7 @@
   grid-template-rows: minmax(185px, 1fr) minmax(185px, 1fr) minmax(185px, 1fr);
   gap: 20px 15px;
   width: 100%;
-  min-height: calc(100vh - 18px - 28px - 27px - 28px);
+  min-height: calc(100vh - 40px - 27px - 30px);
 }
 
 .main_card,
