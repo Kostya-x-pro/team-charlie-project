@@ -36,7 +36,7 @@
 - константы без логики;
 - CSS-классы сами по себе.
 
-*Unit-тест располагается рядом с модулем:*
+_Unit-тест располагается рядом с модулем:_
 
 ```text
 src/shared/api/client.test.ts
@@ -59,13 +59,13 @@ Integration-тест проверяет совместную работу нес
 - loading-, success- и error-состояний;
 - переключения языка и другой важной UI-логики.
 
-*Integration-тест располагается рядом с компонентом или feature:*
+_Integration-тест располагается рядом с компонентом или feature:_
 
 ```text
 src/features/contact-form/ui/contact-form.test.tsx
 ```
 
-*Предпочтительный порядок поиска элементов:*
+_Предпочтительный порядок поиска элементов:_
 
 1. `getByRole`
 2. `getByLabelText`
@@ -91,7 +91,7 @@ e2e/home.spec.ts
 - работает переключение языка;
 - корректно отображаются критичные ошибки.
 
-*Не переносим в E2E все проверки компонентов и второстепенные UI-состояния.*
+_Не переносим в E2E все проверки компонентов и второстепенные UI-состояния._
 
 **Async Server Components** преимущественно проверяем через E2E, поскольку
 Vitest не выполняет их как полноценное Next.js-приложение.
@@ -107,15 +107,15 @@ playwright.config.ts
 
 ## Команды
 
-| Команда | Назначение |
-| -------- | ---------- |
-| `npm test` | Запускает Vitest в watch-режиме |
-| `npm run test:run` | Один раз запускает unit- и integration-тесты |
-| `npm run test:coverage` | Запускает Vitest и создаёт отчёт о покрытии |
-| `npm run test:e2e` | Собирает приложение и запускает Playwright |
-| `npm run test:e2e:ui` | Открывает интерактивный интерфейс Playwright |
-| `npm run test:all` | Запускает Vitest и E2E |
-| `npm run check` | Проверяет типы, lint, форматирование, тесты и build |
+| Команда                 | Назначение                                          |
+| ----------------------- | --------------------------------------------------- |
+| `npm test`              | Запускает Vitest в watch-режиме                     |
+| `npm run test:run`      | Один раз запускает unit- и integration-тесты        |
+| `npm run test:coverage` | Запускает Vitest и создаёт отчёт о покрытии         |
+| `npm run test:e2e`      | Собирает приложение и запускает Playwright          |
+| `npm run test:e2e:ui`   | Открывает интерактивный интерфейс Playwright        |
+| `npm run test:all`      | Запускает Vitest и E2E                              |
+| `npm run check`         | Проверяет типы, lint, форматирование, тесты и build |
 
 ## Правила
 
@@ -128,6 +128,40 @@ playwright.config.ts
 - snapshots не используются для больших компонентов и страниц;
 - coverage применяется как индикатор, а не как самоцель.
 
+## Continuous Integration
+
+CI реализован через GitHub Actions и настроен в:
+
+```text
+.github/workflows/ci.yml
+```
+
+При CI запусаются:
+
+```bash
+npm ci
+npm run typecheck
+npm run lint
+npm run format:check
+npm run test:run
+npm run build
+npx playwright install --with-deps chromium
+npx playwright test
+```
+
+**Проверяются:**
+
+- корректность TypeScript;
+- правила ESLint;
+- форматирование Prettier;
+- unit- и integration-тесты;
+- production-сборка Next.js;
+- критичные E2E-сценарии в Chromium.
+
+<u>_Если E2E-тест падает, GitHub Actions сохраняет Playwright report и результаты тестов как artifact на 7 дней._</u>
+
+<u>_При появлении нового коммита предыдущий незавершённый запуск того же Pull Request отменяется._</u>
+
 ## Источники
 
 - https://nextjs.org/docs/app/guides/testing/vitest
@@ -135,3 +169,7 @@ playwright.config.ts
 - https://vitest.dev/config/
 - https://testing-library.com/docs/guiding-principles/
 - https://playwright.dev/docs/test-webserver
+- https://docs.github.com/en/actions
+- https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run
+- https://docs.github.com/en/actions/how-tos/write-workflows/control-workflow-concurrency
+- https://playwright.dev/docs/ci

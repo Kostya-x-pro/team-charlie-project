@@ -25,7 +25,9 @@ export const API_KEY_HEADER = 'x-api-key';
 export const DEFAULT_TIMEOUT_MS = 45_000;
 export const DEFAULT_LANGUAGE: Lang = 'en';
 
-const getRequiredEnv = (name: 'BACKEND_API_URL' | 'BACKEND_API_KEY'): string => {
+const getRequiredEnv = (
+  name: 'BACKEND_API_URL' | 'BACKEND_API_KEY',
+): string => {
   const value = process.env[name];
 
   if (!value) {

@@ -25,11 +25,20 @@ export const HomePage = () => {
         middlemen, no outsourcing
       </Text>
 
-      <Text family='stolzl' size='20'color='white' opacity='70'>
+      <Text family='stolzl' size='20' color='white' opacity='70'>
         Custom tools, fast integrations and scalable architecture
       </Text>
 
-      <Text tag='span' family='halvar' size='20' weight='bold' color='yellow' transform='uppercase' underline noWrap>
+      <Text
+        tag='span'
+        family='halvar'
+        size='20'
+        weight='bold'
+        color='yellow'
+        transform='uppercase'
+        underline
+        noWrap
+      >
         Team
       </Text>
     </main>
