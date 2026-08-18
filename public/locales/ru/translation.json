@@ -17,7 +17,11 @@
     "title": {
       "firstLine": "Практика",
       "secondLine": "Приносит",
-      "accent": "Прибыль"
+      "accents": {
+        "profit": "Прибыль",
+        "growth": "Рост",
+        "skills": "Навыки"
+      }
     },
     "description": {
       "firstLine": "Мы предлагаем эффективные решения, проверенные и улучшенные",

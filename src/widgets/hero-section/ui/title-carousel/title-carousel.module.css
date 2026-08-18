@@ -1,0 +1,17 @@
+.carousel {
+  display: inline-block;
+  height: 54px;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.track {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  display: block;
+  flex: 0 0 54px;
+  height: 54px;
+}
