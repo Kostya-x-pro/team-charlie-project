@@ -17,7 +17,11 @@
     "title": {
       "firstLine": "Practice",
       "secondLine": "Makes",
-      "accent": "Profit"
+      "accents": {
+        "profit": "Profit",
+        "growth": "Growth",
+        "skills": "Skills"
+      }
     },
     "description": {
       "firstLine": "We provide effective solutions, tested and refined",

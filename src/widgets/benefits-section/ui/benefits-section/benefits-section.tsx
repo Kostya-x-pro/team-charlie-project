@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 
 import snakeImage from '@/shared/assets/images/multibenefits_page_snake.png';
+import { cn } from '@/shared/lib/cn';
+import { AnimatedGrid } from '@/shared/ui/animated-grid';
 import { Text } from '@/shared/ui/text';
 
 import { BENEFIT_ITEM_KEYS } from '../../model/benefits-items';
@@ -15,7 +17,9 @@ export const BenefitsSection = () => {
   const { t } = useTranslation();
   return (
     <section className={styles.section} id='benefits'>
-      <div className='container'>
+      <AnimatedGrid />
+
+      <div className={cn('container', styles.content_layer)}>
         <Text
           className={styles.section_subtitle}
           tag='div'

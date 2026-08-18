@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import multitaskSnakeImage from '@/shared/assets/images/multitask_page_snake.png';
 import { cn } from '@/shared/lib/cn';
+import { AnimatedGrid } from '@/shared/ui/animated-grid';
 import { Text } from '@/shared/ui/text';
 
 import { MULTI_TASK_CARDS } from './model/multitask-card';
@@ -18,7 +19,9 @@ export const MultitaskSection = () => {
       className={styles.section}
       aria-labelledby='multitask-title'
     >
-      <div className='container'>
+      <AnimatedGrid />
+
+      <div className={cn('container', styles.content_layer)}>
         <Text
           id='multitask-title'
           className={styles.section_title}

@@ -7,10 +7,12 @@ import { useTranslation } from 'react-i18next';
 
 import snakeImage from '@/shared/assets/images/hero_page_snake.png';
 import { cn } from '@/shared/lib/cn';
+import { AnimatedGrid } from '@/shared/ui/animated-grid';
 import { Button } from '@/shared/ui/button';
 import { Text } from '@/shared/ui/text';
 
-import { SOCIAL_ITEMS } from '../model/social-items';
+import { SOCIAL_ITEMS } from '../../model/social-items';
+import { TitleCarousel } from '../title-carousel/title-carousel';
 import styles from './hero-section.module.css';
 
 interface Props {
@@ -19,12 +21,20 @@ interface Props {
 
 export const HeroSection = ({ header }: Props) => {
   const { t } = useTranslation();
+  const titleItems = [
+    t('hero.title.accents.profit'),
+    t('hero.title.accents.skills'),
+    t('hero.title.accents.growth'),
+  ] as const;
+
   return (
     <section
       id='home'
       className={styles.section}
       aria-labelledby='home-hero-title'
     >
+      <AnimatedGrid />
+
       <div className={cn('container', styles.hero_container)}>
         {header}
         <div className={styles.hero}>
@@ -40,22 +50,14 @@ export const HeroSection = ({ header }: Props) => {
                 color='white'
                 transform='uppercase'
                 letterSpacing='display'
+                aria-label={`${t('hero.title.firstLine')} ${t(
+                  'hero.title.secondLine',
+                )} ${titleItems[0]}`}
               >
                 {t('hero.title.firstLine')}
                 <br />
                 {t('hero.title.secondLine')}{' '}
-                <Text
-                  tag='span'
-                  size='60'
-                  weight='bold'
-                  lineHeight='54'
-                  color='yellow'
-                  transform='uppercase'
-                  letterSpacing='display-accent'
-                  noWrap
-                >
-                  {t('hero.title.accent')}
-                </Text>
+                <TitleCarousel items={titleItems} />
               </Text>
 
               <Text
