@@ -1,8 +1,15 @@
+@import './fonts.css';
+@import './tokens.css';
 @import './reset.css';
+@import './layout.css';
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 html,
@@ -14,7 +21,7 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-geist), Arial, Helvetica, sans-serif;
+  font-family: var(--font-family-halvar);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -27,5 +34,11 @@ body {
 
   html {
     color-scheme: dark;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
