@@ -1,6 +1,7 @@
 .marquee {
   position: absolute;
   top: 585.76px;
+  z-index: 1;
   width: 100%;
   padding: 8px 0;
   overflow: hidden;

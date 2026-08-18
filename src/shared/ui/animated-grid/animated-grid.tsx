@@ -1,12 +1,12 @@
 'use client';
 
-import { useRef } from 'react';
+import { useId, useRef } from 'react';
 
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 
-import styles from './hero-grid.module.css';
-import HeroGridSvg from './hero-grid.svg';
+import styles from './animated-grid.module.css';
+import AnimatedGridSvg from './animated-grid.svg';
 
 gsap.registerPlugin(useGSAP);
 
@@ -18,7 +18,8 @@ const LEFT_POSITION_X_RATIO = 0.11;
 const LEFT_POSITION_Y_RATIO = 0.56;
 const BOTTOM_POSITION_Y_RATIO = 1.15;
 
-export const HeroGrid = () => {
+export const AnimatedGrid = () => {
+  const instanceId = useId().replace(/[^a-zA-Z0-9_-]/g, '');
   const rootRef = useRef<HTMLDivElement>(null);
   const gridLayerRef = useRef<HTMLDivElement>(null);
 
@@ -29,18 +30,45 @@ export const HeroGrid = () => {
 
       if (!root || !gridLayer) return;
 
+      const svg = gridLayer.querySelector<SVGSVGElement>('svg');
+      const glow = gridLayer.querySelector<SVGEllipseElement>(
+        '[data-grid-glow="true"]',
+      );
+      const mask = gridLayer.querySelector<SVGMaskElement>(
+        '[data-grid-mask="true"]',
+      );
+      const maskLayer = gridLayer.querySelector<SVGGElement>(
+        '[data-grid-mask-layer="true"]',
+      );
+      const filter = gridLayer.querySelector<SVGFilterElement>(
+        '[data-grid-filter="true"]',
+      );
+      const filterLayer = gridLayer.querySelector<SVGGElement>(
+        '[data-grid-filter-layer="true"]',
+      );
+
+      if (!svg || !glow || !mask || !maskLayer || !filter || !filterLayer) {
+        return;
+      }
+
+      /*
+       * Inline SVG выводится несколько раз на одной странице.
+       * У каждого экземпляра должны быть уникальные mask/filter ID.
+       */
+      const maskId = `animated-grid-mask-${instanceId}`;
+      const filterId = `animated-grid-filter-${instanceId}`;
+
+      mask.setAttribute('id', maskId);
+      maskLayer.setAttribute('mask', `url(#${maskId})`);
+
+      filter.setAttribute('id', filterId);
+      filterLayer.setAttribute('filter', `url(#${filterId})`);
+
       const prefersReducedMotion = window.matchMedia(
         '(prefers-reduced-motion: reduce)',
       ).matches;
 
       if (prefersReducedMotion) return;
-
-      const svg = gridLayer.querySelector<SVGSVGElement>('svg');
-      const glow = gridLayer.querySelector<SVGEllipseElement>(
-        '[data-grid-glow="true"]',
-      );
-
-      if (!svg || !glow) return;
 
       const viewBox = svg.getAttribute('viewBox')?.split(/\s+/).map(Number);
       const currentCenterX = Number(glow.getAttribute('cx'));
@@ -56,10 +84,13 @@ export const HeroGrid = () => {
       const leftX = viewBoxWidth * LEFT_POSITION_X_RATIO;
       const leftY = viewBoxHeight * LEFT_POSITION_Y_RATIO;
       const bottomY = viewBoxHeight * BOTTOM_POSITION_Y_RATIO;
+
       const verticalMidpointProgress =
         (leftY - currentCenterY) / (bottomY - currentCenterY);
+
       const verticalEasePower =
         Math.log(verticalMidpointProgress) / Math.log(0.5);
+
       const glowPosition = {
         x: rightX,
         y: currentCenterY,
@@ -127,13 +158,15 @@ export const HeroGrid = () => {
     },
     {
       scope: rootRef,
+      dependencies: [instanceId],
+      revertOnUpdate: true,
     },
   );
 
   return (
     <div ref={rootRef} className={styles.grid} aria-hidden='true'>
       <div ref={gridLayerRef} className={styles.grid_layer}>
-        <HeroGridSvg className={styles.grid_svg} focusable='false' />
+        <AnimatedGridSvg className={styles.grid_svg} focusable='false' />
       </div>
     </div>
   );

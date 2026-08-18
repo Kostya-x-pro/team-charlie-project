@@ -7,11 +7,11 @@ import { useTranslation } from 'react-i18next';
 
 import snakeImage from '@/shared/assets/images/hero_page_snake.png';
 import { cn } from '@/shared/lib/cn';
+import { AnimatedGrid } from '@/shared/ui/animated-grid';
 import { Button } from '@/shared/ui/button';
 import { Text } from '@/shared/ui/text';
 
 import { SOCIAL_ITEMS } from '../../model/social-items';
-import { HeroGrid } from '../hero-grid/hero-grid';
 import { TitleCarousel } from '../title-carousel/title-carousel';
 import styles from './hero-section.module.css';
 
@@ -33,7 +33,7 @@ export const HeroSection = ({ header }: Props) => {
       className={styles.section}
       aria-labelledby='home-hero-title'
     >
-      <HeroGrid />
+      <AnimatedGrid />
 
       <div className={cn('container', styles.hero_container)}>
         {header}
