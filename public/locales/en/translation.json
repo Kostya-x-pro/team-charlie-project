@@ -8,10 +8,10 @@
       "joinUs": "Join Us"
     },
     "language": {
-  "switchLabel": "Switch language",
-  "en": "Eng",
-  "ru": "Rus"
-}
+      "switchLabel": "Switch language",
+      "en": "Eng",
+      "ru": "Rus"
+    }
   },
   "hero": {
     "title": {
@@ -69,6 +69,39 @@
       "proven": "We deliver what has already proven effective — many times over",
       "experience": "We don’t learn at the client’s expense"
     }
+  },
+  "multiply": {
+    "title": "Multiply with us",
+    "optionsLabel": "Choose a partnership option",
+    "items": {
+      "mediaBuyers": {
+        "label": "For Media Buyers",
+        "firstText": "Got experience with sweepstakes and large ad budgets? Looking for a team where you can grow and scale without limits?",
+        "secondText": "Multiply your profits with MULTICPA — we provide the budget, all the tools and high profit shares",
+        "action": "Join the team"
+      },
+      "businesses": {
+        "label": "For Businesses",
+        "firstText": "Need real customers — not theories on how to get them? Have a budget, but no traffic team, creatives, or strategy?",
+        "secondText": "Contact MULTICPA — we’ll build everything from the ground up, drive traffic, and deliver leads in any niche",
+        "action": "Launch now"
+      },
+      "partners": {
+        "label": "For Partners",
+        "firstText": "Experienced solo buyer or running a whole team? Need a reliable partner program with fast onboarding in sweepstakes and full support?",
+        "secondText": "Work with MULTICPA — you run the traffic, we handle everything else. From infrastructure and tech support to funnels, creatives, and expert guidance",
+        "action": "Partner up"
+      }
+    }
+  },
+  "footer": {
+    "socialsLabel": "Social links",
+    "links": {
+      "instagram": "Instagram",
+      "telegram": "Telegram",
+      "linkedin": "LinkedIn"
+    },
+    "scrollTop": "Scroll to top"
   },
   "marquee": "Dream big earn bigger!",
   "notFound": {
