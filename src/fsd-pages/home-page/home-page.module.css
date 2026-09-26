@@ -1,0 +1,6 @@
+.page {
+  height: 100vh;
+  overflow-x: clip;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}

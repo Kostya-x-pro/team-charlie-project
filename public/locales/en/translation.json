@@ -1,0 +1,111 @@
+{
+  "header": {
+    "homeLabel": "Home",
+    "navigationLabel": "Main navigation",
+    "navigation": {
+      "team": "Team",
+      "benefits": "Benefits",
+      "joinUs": "Join Us"
+    },
+    "language": {
+      "switchLabel": "Switch language",
+      "en": "Eng",
+      "ru": "Rus"
+    }
+  },
+  "hero": {
+    "title": {
+      "firstLine": "Practice",
+      "secondLine": "Makes",
+      "accents": {
+        "profit": "Profit",
+        "growth": "Growth",
+        "skills": "Skills"
+      }
+    },
+    "description": {
+      "firstLine": "We provide effective solutions, tested and refined",
+      "secondLine": "on our own products and ad budgets"
+    },
+    "action": "Get in Touch",
+    "socialsLabel": "Social links"
+  },
+  "multitask": {
+    "title": "Multi-tasks",
+    "intro": {
+      "beforeAccent": "We run an",
+      "accent": "in-house team",
+      "afterAccent": "of media buyers, designers, creatives, developers, and copywriters — no middlemen, no outsourcing"
+    },
+    "cards": {
+      "flexible": {
+        "title": "Flexible infrastructure",
+        "description": "Custom tools, fast integrations and scalable architecture"
+      },
+      "creatives": {
+        "title": "High-performing creatives",
+        "description": "Scroll-stopping ads tailored to your vertical"
+      },
+      "copywriting": {
+        "title": "Compelling copywriting",
+        "description": "Conversion-focused messaging for every funnel step"
+      },
+      "mediaBuying": {
+        "title": "Adaptive media buying",
+        "description": "No wasted budgets — we test, tweak, and scale"
+      }
+    }
+  },
+  "benefits": {
+    "title": "Multi-benefits",
+    "heading": {
+      "beforeAccent": "Results can only be",
+      "accent": "guaranteed",
+      "afterAccent": "when you control every step"
+    },
+    "description": "That’s why we built a full-time in-house team and custom infrastructure — tailored for every task, tested daily in the sweepstakes vertical",
+    "items": {
+      "outsourcing": "We take on outsourced projects across any niche — from iGaming and dating to e-commerce and recruitment",
+      "proven": "We deliver what has already proven effective — many times over",
+      "experience": "We don’t learn at the client’s expense"
+    }
+  },
+  "multiply": {
+    "title": "Multiply with us",
+    "optionsLabel": "Choose a partnership option",
+    "items": {
+      "mediaBuyers": {
+        "label": "For Media Buyers",
+        "firstText": "Got experience with sweepstakes and large ad budgets? Looking for a team where you can grow and scale without limits?",
+        "secondText": "Multiply your profits with MULTICPA — we provide the budget, all the tools and high profit shares",
+        "action": "Join the team"
+      },
+      "businesses": {
+        "label": "For Businesses",
+        "firstText": "Need real customers — not theories on how to get them? Have a budget, but no traffic team, creatives, or strategy?",
+        "secondText": "Contact MULTICPA — we’ll build everything from the ground up, drive traffic, and deliver leads in any niche",
+        "action": "Launch now"
+      },
+      "partners": {
+        "label": "For Partners",
+        "firstText": "Experienced solo buyer or running a whole team? Need a reliable partner program with fast onboarding in sweepstakes and full support?",
+        "secondText": "Work with MULTICPA — you run the traffic, we handle everything else. From infrastructure and tech support to funnels, creatives, and expert guidance",
+        "action": "Partner up"
+      }
+    }
+  },
+  "footer": {
+    "socialsLabel": "Social links",
+    "links": {
+      "instagram": "Instagram",
+      "telegram": "Telegram",
+      "linkedin": "LinkedIn"
+    },
+    "scrollTop": "Scroll to top"
+  },
+  "marquee": "Dream big earn bigger!",
+  "notFound": {
+    "title": "Page not found",
+    "back": "Oops, take me back"
+  }
+}

@@ -1,87 +1,111 @@
 'use client';
 
-import { useState } from 'react';
+import { type ReactNode, useState } from 'react';
 
-import { Footer } from '@/widgets/footer';
+import { useTranslation } from 'react-i18next';
 
-import ArrowDownIcon from '@/shared/assets/icons/Arrow_down_icon.svg';
+import ArrowDownIcon from '@/shared/assets/icons/arrow-down-icon.svg';
+import { cn } from '@/shared/lib/cn';
+import { AnimatedGrid } from '@/shared/ui/animated-grid';
 import { Button } from '@/shared/ui/button';
 import { Text } from '@/shared/ui/text';
 
-import { MULTIPLY_ITEMS } from './model/multiply-item';
+import {
+  MULTIPLY_ITEM_KEYS,
+  type MultiplyItemKey,
+} from './model/multiply-items';
 import styles from './multiply-section.module.css';
 
-export const MultiplySection = () => {
-  const [activeTabId, setActiveTabId] = useState<number>(0);
+interface Props {
+  footer: ReactNode;
+}
 
-  const activeTab = MULTIPLY_ITEMS[activeTabId];
+export const MultiplySection = ({ footer }: Props) => {
+  const { t } = useTranslation();
+  const [activeItemKey, setActiveItemKey] =
+    useState<MultiplyItemKey>('mediaBuyers');
 
   return (
-    <div className={styles.section_wrapper}>
-      <section className={styles.section}>
-        <div className='container'>
-          <Text
-            className={styles.subtitle}
-            tag='div'
-            size='40'
-            weight='bold'
-            lineHeight='normal'
-            color='yellow'
-            align='right'
-            transform='uppercase'
-            letterSpacing='display-accent'
-            noWrap
+    <section
+      id='join-us'
+      className={styles.section}
+      aria-labelledby='multiply-title'
+    >
+      <AnimatedGrid />
+
+      <div className={cn('container', styles.content_layer)}>
+        <Text
+          id='multiply-title'
+          className={styles.section_title}
+          tag='h2'
+          size='30'
+          weight='bold'
+          lineHeight='27'
+          color='yellow'
+          align='right'
+          transform='uppercase'
+          letterSpacing='display-accent'
+          noWrap
+        >
+          {t('multiply.title')}
+        </Text>
+
+        <div className={styles.section_content}>
+          <div
+            className={styles.tabs}
+            role='group'
+            aria-label={t('multiply.optionsLabel')}
           >
-            MULTIPLY WITH US
-          </Text>
-          <div className={styles.wrapper}>
-            <div className={styles.tabs}>
-              {MULTIPLY_ITEMS.map(item => (
-                <Button
-                  key={item.id}
-                  variant='secondary'
-                  active={item.id === activeTabId}
-                  onClick={() => setActiveTabId(item.id)}
-                >
-                  {item.label}
-                </Button>
-              ))}
-            </div>
-            <div className={styles.items}>
-              {activeTab && (
-                <div className={styles.item}>
-                  <Text
-                    tag='p'
-                    family='halvar'
-                    size='20'
-                    weight='regular'
-                    lineHeight='24'
-                    color='white'
-                    align='center'
-                  >
-                    {activeTab.firstText}
-                  </Text>
-                  <ArrowDownIcon className={styles.arrow_icon} />
-                  <Text
-                    tag='p'
-                    family='halvar'
-                    size='20'
-                    weight='regular'
-                    lineHeight='24'
-                    color='white'
-                    align='center'
-                  >
-                    {activeTab.secondText}
-                  </Text>
-                  <ArrowDownIcon className={styles.arrow_icon} />
-                  <Button variant='primary'>{activeTab.buttonText}</Button>
-                </div>
-              )}
+            {MULTIPLY_ITEM_KEYS.map(itemKey => (
+              <Button
+                className={styles.tab}
+                key={itemKey}
+                variant='secondary'
+                active={itemKey === activeItemKey}
+                onClick={() => setActiveItemKey(itemKey)}
+              >
+                {t(`multiply.items.${itemKey}.label`)}
+              </Button>
+            ))}
+          </div>
+
+          <div className={styles.info_card} aria-live='polite'>
+            <div className={styles.info_content}>
+              <Text
+                tag='p'
+                size='20'
+                weight='bold'
+                lineHeight='24'
+                color='white'
+                align='center'
+              >
+                {t(`multiply.items.${activeItemKey}.firstText`)}
+              </Text>
+
+              <ArrowDownIcon className={styles.arrow_icon} aria-hidden='true' />
+
+              <Text
+                tag='p'
+                size='20'
+                weight='bold'
+                lineHeight='24'
+                color='white'
+                align='center'
+              >
+                {t(`multiply.items.${activeItemKey}.secondText`)}
+              </Text>
+
+              <ArrowDownIcon className={styles.arrow_icon} aria-hidden='true' />
+
+              <Button className={styles.action} variant='primary'>
+                {t(`multiply.items.${activeItemKey}.action`)}
+              </Button>
             </div>
           </div>
         </div>
-      </section>
-      <Footer />
-    </div>
+      </div>
+
+      {footer}
+    </section>
   );
 };
