@@ -1,0 +1,98 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+
+language: 'ru-RU'
+early_access: false
+
+tone_instructions: >
+  Пиши кратко и по существу. Не добавляй похвалу и стилистические
+  придирки. Указывай только конкретные ошибки, риски и регрессии.
+
+reviews:
+  profile: 'chill'
+  request_changes_workflow: false
+  high_level_summary: true
+  in_progress_fortune: false
+  poem: false
+  review_status: true
+  enable_prompt_for_ai_agents: false
+
+  path_filters:
+    - '!coverage/**'
+    - '!playwright-report/**'
+    - '!test-results/**'
+    - '!public/fonts/**'
+    - '!src/shared/assets/**'
+
+  auto_review:
+    enabled: true
+    drafts: false
+    auto_incremental_review: true
+    auto_pause_after_reviewed_commits: 5
+    base_branches:
+      - 'develop'
+    ignore_title_keywords:
+      - 'WIP'
+      - '[skip review]'
+    labels:
+      - '!do-not-review'
+
+  path_instructions:
+    - path: 'src/**/*.{ts,tsx}'
+      instructions: |
+        - В первую очередь ищи ошибки, регрессии, проблемы безопасности,
+          доступности, производительности и неправильную обработку состояний.
+        - Соблюдай направление FSD-слоёв:
+          app -> fsd-pages -> widgets -> features -> entities -> shared.
+          Нижний слой не должен импортировать верхний.
+        - Widgets не должны импортировать другие widgets.
+        - src/app содержит маршрутизацию, layouts, providers и Next.js entrypoints.
+          Основная UI-реализация должна находиться в FSD-слоях.
+        - Для классических страниц используется src/fsd-pages,
+          поскольку src/pages зарезервирован Next.js Pages Router.
+        - Public API пока обязателен только для компонентов src/shared/ui.
+          Не требуй index.ts для shared/lib, shared/api и остальных директорий.
+        - TypeScript должен оставаться strict. Не допускай any без обоснования.
+        - Object-shaped типы описываются через interface, union-типы через type.
+        - Файлы и директории называются в kebab-case, компоненты в PascalCase,
+          функции и hooks в camelCase, константы в SNAKE_CASE.
+        - Для className используется cn. Прямой импорт clsx разрешён только
+          внутри src/shared/lib/cn.ts.
+        - Не дублируй замечания, которые уже полностью покрываются Prettier.
+
+    - path: 'src/**/*.module.css'
+      instructions: |
+        - CSS-классы должны использовать snake_case.
+        - Цвета, семейства и веса шрифтов должны использовать CSS variables.
+        - Не предлагай переносить локальные стили компонента в globals.css.
+
+    - path: 'src/shared/api/**'
+      instructions: |
+        - Проверяй корректность URL, HTTP method, headers и обработки Response.
+        - Проверяй обработку неуспешных HTTP-статусов и ошибок JSON.
+        - Секреты и серверные env-переменные не должны попадать в client bundle.
+        - Unit-тесты не должны выполнять реальные сетевые запросы.
+
+    - path: '**/*.{test,spec}.{ts,tsx}'
+      instructions: |
+        - Тест должен защищать значимое поведение или вероятную регрессию.
+        - Не требуй тесты для простой статической разметки и props forwarding.
+        - Предпочитай семантические селекторы: role, label и видимый текст.
+        - E2E должны покрывать только критичные пользовательские сценарии.
+
+    - path: 'public/locales/**/translation.json'
+      instructions: |
+        - Проверяй совпадение структуры и ключей русской и английской локалей.
+        - Не допускай пользовательский текст, отсутствующий в одной из локалей.
+
+    - path: 'docs/**/*.md'
+      instructions: |
+        - Проверяй соответствие документации фактическому коду и командам.
+        - Подсвечивай устаревшие или противоречащие друг другу правила.
+
+  tools:
+    eslint:
+      enabled: true
+
+chat:
+  auto_reply: true
+  art: false

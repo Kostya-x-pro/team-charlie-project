@@ -29,6 +29,7 @@
 }
 
 .button_primary .button_content {
+  flex: 1;
   padding: 16px 46px;
   color: var(--color-dark);
   background: var(--color-yellow);
@@ -109,7 +110,6 @@
 .button_secondary.button_active {
   color: var(--color-dark);
   background: var(--color-yellow);
-  border-color: var(--color-dark);
 }
 
 .button_label {
