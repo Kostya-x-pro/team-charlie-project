@@ -9,6 +9,7 @@ import '@/app/styles/globals.css';
 
 import { LOCALES } from '@/shared/config/i18n/config';
 import { isValidLocale } from '@/shared/lib/i18n/is-valid-locale';
+import { Preloader } from '@/shared/ui/preloader';
 
 interface Props {
   children: ReactNode;
@@ -36,6 +37,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         <I18nProvider key={lang} lang={lang}>
           {children}
         </I18nProvider>
+        <Preloader waitForPageLoad />
       </body>
     </html>
   );
