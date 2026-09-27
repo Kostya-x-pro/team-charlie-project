@@ -137,3 +137,11 @@
   opacity: var(--opacity-muted);
   pointer-events: none;
 }
+
+@media (max-width: 767px) {
+  .button_secondary {
+    padding: 16px 32px;
+    font-size: var(--font-size-20);
+    line-height: var(--line-height-24);
+  }
+}

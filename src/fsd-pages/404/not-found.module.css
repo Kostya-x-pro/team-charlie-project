@@ -9,9 +9,15 @@
   background: var(--gradient-section-primary);
 }
 
-.logo {
+.header.header {
   position: absolute;
   top: 30px;
+  right: max(
+    var(--container-padding-inline),
+    calc(
+      (100vw - var(--container-max-width)) / 2 + var(--container-padding-inline)
+    )
+  );
   left: max(
     var(--container-padding-inline),
     calc(
@@ -19,16 +25,7 @@
     )
   );
   z-index: 3;
-  display: block;
-  width: 45px;
-  height: 41px;
-  color: var(--color-yellow);
-}
-
-.logo svg {
-  display: block;
-  width: 100%;
-  height: 100%;
+  width: auto;
 }
 
 .content {
@@ -44,6 +41,9 @@
 }
 
 .title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0;
   color: var(--color-white);
   font-family: var(--font-family-halvar);
@@ -79,5 +79,37 @@
 
   .back_button {
     margin-top: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .header.header {
+    top: 10px;
+    right: 16px;
+    left: 16px;
+    width: auto;
+  }
+
+  .content {
+    transform: translateY(-32px);
+  }
+
+  .title {
+    flex-direction: column;
+    font-size: 150px;
+    line-height: 0.7;
+    letter-spacing: -0.04em;
+  }
+
+  .back_button {
+    width: min(250px, 100%);
+    margin-top: 64px;
+  }
+
+  .snake {
+    bottom: -100px;
+    left: 14vw;
+    width: 98vw;
+    max-width: none;
   }
 }

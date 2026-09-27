@@ -2,6 +2,8 @@
   "header": {
     "homeLabel": "Home",
     "navigationLabel": "Main navigation",
+    "menuLabel": "Menu",
+    "closeMenuLabel": "Close",
     "navigation": {
       "team": "Team",
       "benefits": "Benefits",

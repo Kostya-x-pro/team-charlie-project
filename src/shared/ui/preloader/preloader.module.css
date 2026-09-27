@@ -75,3 +75,29 @@
   border-radius: 999px;
   transition: width 75ms linear;
 }
+
+@media (max-width: 767px) {
+  .logo {
+    top: 10px;
+    left: 16px;
+    width: 26.238px;
+    height: 24.001px;
+  }
+
+  .content {
+    position: absolute;
+    right: 16px;
+    bottom: 60px;
+    left: 16px;
+    gap: 30px;
+    width: auto;
+  }
+
+  .progress_value {
+    font-size: clamp(48px, 20vw, 80px);
+  }
+
+  .progress_track {
+    height: 24px;
+  }
+}

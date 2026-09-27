@@ -4,7 +4,8 @@ import Image from 'next/image';
 
 import { useTranslation } from 'react-i18next';
 
-import LogoIcon from '@/shared/assets/icons/logo_small_icon.svg';
+import { Header } from '@/widgets/header/ui';
+
 import notFoundSnake from '@/shared/assets/images/hero_page_snake.png';
 import { AnimatedGrid } from '@/shared/ui/animated-grid';
 import { Button } from '@/shared/ui/button';
@@ -19,17 +20,18 @@ export const NotFound = () => {
     <main className={styles.page}>
       <AnimatedGrid />
 
-      <a
-        className={styles.logo}
-        href={`/${locale}`}
-        aria-label={t('header.homeLabel')}
-      >
-        <LogoIcon aria-hidden='true' />
-      </a>
+      <Header
+        className={styles.header}
+        homeHref={`/${locale}`}
+        sectionPrefix={`/${locale}`}
+        mobileMenuOnly
+      />
 
       <div className={styles.content}>
         <h1 className={styles.title} aria-label={t('notFound.title')}>
-          404
+          <span aria-hidden='true'>4</span>
+          <span aria-hidden='true'>0</span>
+          <span aria-hidden='true'>4</span>
         </h1>
 
         <Button className={styles.back_button} href={`/${locale}`}>

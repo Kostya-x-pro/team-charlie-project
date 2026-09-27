@@ -37,3 +37,37 @@
   color: currentColor;
   flex-shrink: 0;
 }
+
+@media (max-width: 767px) {
+  .footer {
+    position: relative;
+    bottom: auto;
+    height: auto;
+    margin-top: 32px;
+  }
+
+  .footer_container {
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .footer_items {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .footer_link,
+  .footer_scroll_top {
+    padding: 6px;
+    font-size: var(--font-size-16);
+  }
+
+  .footer_scroll_top {
+    align-self: flex-end;
+  }
+
+  .footer_arrow {
+    width: 12px;
+    height: 24px;
+  }
+}

@@ -2,6 +2,8 @@
   "header": {
     "homeLabel": "Главная",
     "navigationLabel": "Основная навигация",
+    "menuLabel": "Меню",
+    "closeMenuLabel": "Закрыть",
     "navigation": {
       "team": "Команда",
       "benefits": "Преимущества",
