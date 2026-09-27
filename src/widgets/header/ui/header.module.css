@@ -78,18 +78,24 @@
 
 @media (max-width: 767px) {
   .header {
+    position: relative;
     flex-shrink: 0;
+    height: 24px;
     min-height: 24px;
   }
 
   .logo_button {
-    width: 27px;
-    height: 24px;
+    width: 26.238px;
+    height: 24.001px;
+    flex: 0 0 auto;
   }
 
   .logo_icon {
-    width: 26.238px;
-    height: 24.001px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    overflow: visible;
   }
 
   .nav {
@@ -117,16 +123,24 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 92px 16px 26px;
+    min-height: 100svh;
+    padding: 24px 16px 26px;
     overflow-y: auto;
     background: var(--gradient-section-primary);
   }
 
+  .mobile_menu_main {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+  }
+
   .mobile_menu_close {
-    position: absolute;
-    top: 12px;
-    right: 16px;
-    z-index: 2;
     display: inline-flex;
     padding: 0;
     color: var(--color-yellow);
@@ -140,11 +154,9 @@
   }
 
   .mobile_nav {
-    position: relative;
-    z-index: 1;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 28px;
   }
 
@@ -171,24 +183,37 @@
   }
 
   .mobile_social_link {
-    display: inline-flex;
-    width: 32px;
-    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
     color: var(--color-white);
   }
 
   .mobile_social_link svg {
-    width: 100%;
-    height: 100%;
+    display: block;
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    overflow: visible;
   }
 
   .mobile_language_button {
-    padding: 6px;
+    padding: 0;
     color: var(--color-yellow);
     background: transparent;
     border: 0;
     font-family: var(--font-family-halvar);
     font-weight: var(--font-weight-bold);
     text-transform: uppercase;
+  }
+
+  .mobile_language_switcher {
+    gap: 0;
+  }
+
+  .mobile_language_separator {
+    color: var(--color-yellow);
   }
 }

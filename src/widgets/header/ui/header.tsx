@@ -119,55 +119,58 @@ export const Header = ({
       </button>
 
       {isMenuOpen && (
-        <div
+        <section
           className={styles.mobile_menu}
           id='mobile-navigation'
+          aria-label={t('header.navigationLabel')}
           onKeyDown={event => {
             if (event.key === 'Escape') setIsMenuOpen(false);
           }}
         >
           <AnimatedGrid />
-          <button
-            className={styles.mobile_menu_close}
-            type='button'
-            onClick={() => setIsMenuOpen(false)}
-          >
-            {t('header.closeMenuLabel')}
-          </button>
-          <nav
-            className={styles.mobile_nav}
-            aria-label={t('header.navigationLabel')}
-          >
-            <Text
-              className={styles.mobile_nav_link}
-              tag='a'
-              href={`${sectionPrefix}#home`}
-              size='30'
-              weight='bold'
-              color='yellow'
-              transform='uppercase'
-              underline
+          <div className={styles.mobile_menu_main}>
+            <button
+              className={styles.mobile_menu_close}
+              type='button'
               onClick={() => setIsMenuOpen(false)}
             >
-              {t('header.homeLabel')}
-            </Text>
-            {HEADER_NAV_ITEMS.map(({ href, translationKey }) => (
+              {t('header.closeMenuLabel')}
+            </button>
+            <nav
+              className={styles.mobile_nav}
+              aria-label={t('header.navigationLabel')}
+            >
               <Text
                 className={styles.mobile_nav_link}
                 tag='a'
-                href={`${sectionPrefix}${href}`}
+                href={`${sectionPrefix}#home`}
                 size='30'
                 weight='bold'
                 color='yellow'
                 transform='uppercase'
                 underline
-                key={href}
                 onClick={() => setIsMenuOpen(false)}
               >
-                {t(translationKey)}
+                {t('header.homeLabel')}
               </Text>
-            ))}
-          </nav>
+              {HEADER_NAV_ITEMS.map(({ href, translationKey }) => (
+                <Text
+                  className={styles.mobile_nav_link}
+                  tag='a'
+                  href={`${sectionPrefix}${href}`}
+                  size='30'
+                  weight='bold'
+                  color='yellow'
+                  transform='uppercase'
+                  underline
+                  key={href}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {t(translationKey)}
+                </Text>
+              ))}
+            </nav>
+          </div>
 
           <div className={styles.mobile_menu_footer}>
             <div className={styles.mobile_socials}>
@@ -186,23 +189,32 @@ export const Header = ({
               className={styles.mobile_language_switcher}
               aria-label={t('header.language.switchLabel')}
             >
-              {(['en', 'ru'] as const).map(locale => (
-                <button
-                  className={styles.mobile_language_button}
-                  type='button'
-                  aria-pressed={currentLocale === locale}
-                  key={locale}
-                  onClick={() => {
-                    setIsMenuOpen(false);
-                    changeLocale(locale);
-                  }}
-                >
-                  {t(`header.language.${locale}`)}
-                </button>
-              ))}
+              <button
+                className={styles.mobile_language_button}
+                type='button'
+                aria-pressed={currentLocale === 'en'}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  changeLocale('en');
+                }}
+              >
+                Eng
+              </button>
+              <span className={styles.mobile_language_separator}>/</span>
+              <button
+                className={styles.mobile_language_button}
+                type='button'
+                aria-pressed={currentLocale === 'ru'}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  changeLocale('ru');
+                }}
+              >
+                Rus
+              </button>
             </div>
           </div>
-        </div>
+        </section>
       )}
     </header>
   );

@@ -102,14 +102,14 @@
   }
 
   .back_button {
-    width: min(250px, 100%);
+    width: min(250px, calc(100vw - 32px));
     margin-top: 64px;
   }
 
   .snake {
-    bottom: -100px;
-    left: 14vw;
-    width: 98vw;
+    bottom: 0;
+    left: 16px;
+    width: 32.67vw;
     max-width: none;
   }
 }
