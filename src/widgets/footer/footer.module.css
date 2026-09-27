@@ -47,23 +47,29 @@
   }
 
   .footer_container {
-    align-items: flex-start;
-    gap: 20px;
-  }
-
-  .footer_items {
-    flex-wrap: wrap;
+    align-items: center;
+    flex-wrap: nowrap;
     gap: 4px;
   }
 
-  .footer_link,
-  .footer_scroll_top {
-    padding: 6px;
-    font-size: var(--font-size-16);
+  .footer_container nav {
+    min-width: 0;
+  }
+
+  .footer_items {
+    flex-wrap: nowrap;
+    gap: 0;
+  }
+
+  .footer_items .footer_link,
+  .footer_container .footer_scroll_top {
+    padding: 2px;
+    font-size: 12px;
   }
 
   .footer_scroll_top {
-    align-self: flex-end;
+    flex-shrink: 0;
+    gap: 4px;
   }
 
   .footer_arrow {

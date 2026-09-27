@@ -22,6 +22,7 @@ export const NotFound = () => {
 
       <Header
         className={styles.header}
+        compactMobileLogo
         homeHref={`/${locale}`}
         sectionPrefix={`/${locale}`}
         mobileMenuOnly

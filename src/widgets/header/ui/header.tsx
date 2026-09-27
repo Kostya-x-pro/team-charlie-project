@@ -18,8 +18,11 @@ import styles from './header.module.css';
 
 interface Props {
   className?: string;
+  compactMobileLogo?: boolean;
   homeHref?: string;
+  isMenuOpen?: boolean;
   mobileMenuOnly?: boolean;
+  onMenuOpenChange?: (isOpen: boolean) => void;
   sectionPrefix?: string;
 }
 
@@ -31,20 +34,32 @@ const MENU_SOCIALS = [
 
 export const Header = ({
   className,
+  compactMobileLogo = false,
   homeHref = '#home',
+  isMenuOpen: controlledMenuOpen,
   mobileMenuOnly = false,
+  onMenuOpenChange,
   sectionPrefix = '',
 }: Props) => {
   const { t, i18n } = useTranslation();
   const changeLocale = useChangeLocale();
   const currentLocale = i18n.resolvedLanguage === 'ru' ? 'ru' : 'en';
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [internalMenuOpen, setInternalMenuOpen] = useState(false);
+  const isMenuOpen = controlledMenuOpen ?? internalMenuOpen;
+  const setMenuOpen = (nextIsOpen: boolean) => {
+    if (controlledMenuOpen === undefined) {
+      setInternalMenuOpen(nextIsOpen);
+    }
+
+    onMenuOpenChange?.(nextIsOpen);
+  };
 
   return (
     <header
       className={cn(
         styles.header,
         mobileMenuOnly && styles.mobile_menu_only,
+        compactMobileLogo && styles.compact_mobile_logo,
         className,
       )}
     >
@@ -113,7 +128,7 @@ export const Header = ({
         type='button'
         aria-expanded={isMenuOpen}
         aria-controls={isMenuOpen ? 'mobile-navigation' : undefined}
-        onClick={() => setIsMenuOpen(open => !open)}
+        onClick={() => setMenuOpen(!isMenuOpen)}
       >
         {t(isMenuOpen ? 'header.closeMenuLabel' : 'header.menuLabel')}
       </button>
@@ -124,18 +139,29 @@ export const Header = ({
           id='mobile-navigation'
           aria-label={t('header.navigationLabel')}
           onKeyDown={event => {
-            if (event.key === 'Escape') setIsMenuOpen(false);
+            if (event.key === 'Escape') setMenuOpen(false);
           }}
         >
           <AnimatedGrid />
-          <div className={styles.mobile_menu_main}>
+          <div className={styles.mobile_menu_header}>
+            <a
+              className={styles.mobile_menu_logo}
+              href={`${sectionPrefix}#home`}
+              aria-label={t('header.homeLabel')}
+              onClick={() => setMenuOpen(false)}
+            >
+              <LogoIcon aria-hidden='true' />
+            </a>
             <button
               className={styles.mobile_menu_close}
               type='button'
-              onClick={() => setIsMenuOpen(false)}
+              aria-label={t('header.closeMenuLabel')}
+              onClick={() => setMenuOpen(false)}
             >
-              {t('header.closeMenuLabel')}
+              X
             </button>
+          </div>
+          <div className={styles.mobile_menu_main}>
             <nav
               className={styles.mobile_nav}
               aria-label={t('header.navigationLabel')}
@@ -149,7 +175,7 @@ export const Header = ({
                 color='yellow'
                 transform='uppercase'
                 underline
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => setMenuOpen(false)}
               >
                 {t('header.homeLabel')}
               </Text>
@@ -164,54 +190,58 @@ export const Header = ({
                   transform='uppercase'
                   underline
                   key={href}
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => setMenuOpen(false)}
                 >
                   {t(translationKey)}
                 </Text>
               ))}
             </nav>
-          </div>
-
-          <div className={styles.mobile_menu_footer}>
-            <div className={styles.mobile_socials}>
-              {MENU_SOCIALS.map(({ label, Icon }) => (
-                <a
-                  className={styles.mobile_social_link}
-                  href='#'
-                  aria-label={label}
-                  key={label}
+            <div className={styles.mobile_menu_footer}>
+              <div className={styles.mobile_socials}>
+                {MENU_SOCIALS.map(({ label, Icon }) => (
+                  <a
+                    className={styles.mobile_social_link}
+                    href='#'
+                    aria-label={label}
+                    key={label}
+                  >
+                    <Icon aria-hidden='true' />
+                  </a>
+                ))}
+              </div>
+              <div className={styles.mobile_language_switcher}>
+                <button
+                  className={cn(
+                    styles.mobile_language_button,
+                    currentLocale === 'en' && styles.mobile_language_active,
+                  )}
+                  type='button'
+                  aria-pressed={currentLocale === 'en'}
+                  aria-label={t('header.language.switchLabel')}
+                  onClick={() => {
+                    setMenuOpen(false);
+                    changeLocale('en');
+                  }}
                 >
-                  <Icon aria-hidden='true' />
-                </a>
-              ))}
-            </div>
-            <div
-              className={styles.mobile_language_switcher}
-              aria-label={t('header.language.switchLabel')}
-            >
-              <button
-                className={styles.mobile_language_button}
-                type='button'
-                aria-pressed={currentLocale === 'en'}
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  changeLocale('en');
-                }}
-              >
-                Eng
-              </button>
-              <span className={styles.mobile_language_separator}>/</span>
-              <button
-                className={styles.mobile_language_button}
-                type='button'
-                aria-pressed={currentLocale === 'ru'}
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  changeLocale('ru');
-                }}
-              >
-                Rus
-              </button>
+                  ENG
+                </button>
+                <span className={styles.mobile_language_separator}>/</span>
+                <button
+                  className={cn(
+                    styles.mobile_language_button,
+                    currentLocale === 'ru' && styles.mobile_language_active,
+                  )}
+                  type='button'
+                  aria-pressed={currentLocale === 'ru'}
+                  aria-label={t('header.language.switchLabel')}
+                  onClick={() => {
+                    setMenuOpen(false);
+                    changeLocale('ru');
+                  }}
+                >
+                  РУС
+                </button>
+              </div>
             </div>
           </div>
         </section>

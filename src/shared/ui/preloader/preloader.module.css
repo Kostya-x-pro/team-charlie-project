@@ -80,8 +80,9 @@
   .logo {
     top: 10px;
     left: 16px;
-    width: 26.238px;
-    height: 24.001px;
+    width: 24px;
+    height: 24px;
+    overflow: visible;
   }
 
   .content {
@@ -99,5 +100,12 @@
 
   .progress_track {
     height: 24px;
+  }
+
+  .logo svg {
+    width: 24px;
+    height: 24px;
+    overflow: visible;
+    object-fit: contain;
   }
 }
