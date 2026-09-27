@@ -3,11 +3,6 @@
 @import './reset.css';
 @import './layout.css';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 html {
   scroll-behavior: smooth;
 }
