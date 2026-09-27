@@ -85,7 +85,6 @@ export const Text = <T extends TextTag = 'div'>(props: Props<T>) => {
         styles[`align_${align}`],
         styles[`transform_${transform}`],
         styles[`letter_spacing_${letterSpacing}`],
-        styles[`letter_spacing_${letterSpacing}`],
         styles[`opacity_${opacity}`],
         underline && styles.underline,
         noWrap && styles.no_wrap,
