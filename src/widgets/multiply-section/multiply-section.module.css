@@ -68,3 +68,58 @@
 .action {
   width: 330px;
 }
+
+@media (max-width: 767px) {
+  .section {
+    height: auto;
+    min-height: 100svh;
+    padding-block: 20px 40px;
+    overflow: hidden;
+  }
+
+  .content_layer {
+    height: auto;
+  }
+
+  .content_layer .section_title {
+    margin-bottom: 24px;
+    text-align: left;
+    white-space: normal;
+  }
+
+  .section_content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .tabs {
+    align-items: center;
+    gap: 12px;
+  }
+
+  .tabs .tab {
+    height: auto;
+    padding-block: 16px;
+  }
+
+  .info_card {
+    min-height: 470px;
+    padding: 20px 16px;
+    background: var(--gradient-multitask-card);
+    border-radius: 8px;
+  }
+
+  .info_content {
+    gap: 16px;
+  }
+
+  .info_content p {
+    font-size: var(--font-size-16);
+    line-height: 20px;
+  }
+
+  .action {
+    width: min(250px, 100%);
+  }
+}

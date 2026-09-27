@@ -30,8 +30,11 @@ export const TitleCarousel = ({ items }: Props) => {
 
       if (!track) return;
 
+      const itemHeight =
+        track.firstElementChild?.getBoundingClientRect().height ?? ITEM_HEIGHT;
+
       gsap.set(track, {
-        y: -ITEM_HEIGHT * 2,
+        y: -itemHeight * 2,
       });
 
       const prefersReducedMotion = window.matchMedia(
@@ -45,7 +48,7 @@ export const TitleCarousel = ({ items }: Props) => {
           repeat: -1,
         })
         .to(track, {
-          y: -ITEM_HEIGHT,
+          y: -itemHeight,
           duration: MOVE_DURATION,
           delay: HOLD_DURATION,
           ease: 'power3.inOut',
@@ -57,7 +60,7 @@ export const TitleCarousel = ({ items }: Props) => {
           ease: 'power3.inOut',
         })
         .to(track, {
-          y: -ITEM_HEIGHT * 2,
+          y: -itemHeight * 2,
           duration: RESET_DURATION,
           delay: HOLD_DURATION,
           ease: 'power4.inOut',

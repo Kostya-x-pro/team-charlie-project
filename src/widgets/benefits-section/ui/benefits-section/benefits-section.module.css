@@ -60,3 +60,59 @@
 .section_description {
   max-width: 560px;
 }
+
+@media (max-width: 767px) {
+  .section {
+    height: auto;
+    min-height: 100svh;
+    padding-block: 20px 40px;
+    overflow: hidden;
+  }
+
+  .section_subtitle {
+    margin-bottom: 24px;
+    text-align: left;
+  }
+
+  .section_content .section_title {
+    margin-bottom: 16px;
+    font-size: 32px;
+    line-height: 1.15;
+  }
+
+  .section_title span {
+    white-space: normal;
+  }
+
+  .section_main {
+    display: block;
+  }
+
+  .section_description {
+    max-width: 100%;
+    font-size: var(--font-size-16);
+    line-height: 20px;
+  }
+
+  .section_list_wrapper {
+    margin-top: 160px;
+  }
+
+  .section_image {
+    display: none;
+  }
+
+  .section_list {
+    gap: 20px;
+  }
+
+  .section_item {
+    padding: 16px;
+    border-radius: 8px;
+  }
+
+  .section_item p {
+    font-size: var(--font-size-16);
+    line-height: 20px;
+  }
+}

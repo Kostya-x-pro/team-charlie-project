@@ -64,3 +64,26 @@
     transform: translateX(-50%);
   }
 }
+
+@media (max-width: 767px) {
+  .marquee {
+    top: 330px;
+    padding-block: 6px;
+    transform: rotate(-3deg);
+  }
+
+  .marquee_content {
+    gap: 25px;
+    padding-right: 25px;
+  }
+
+  .marquee .marquee_text {
+    margin-right: 25px;
+    font-size: 35px;
+  }
+
+  .marquee_icon {
+    width: 40px;
+    height: 37px;
+  }
+}

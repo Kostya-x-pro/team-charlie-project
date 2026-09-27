@@ -37,3 +37,43 @@
   color: currentColor;
   flex-shrink: 0;
 }
+
+@media (max-width: 767px) {
+  .footer {
+    position: relative;
+    bottom: auto;
+    height: auto;
+    margin-top: 32px;
+  }
+
+  .footer_container {
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 4px;
+  }
+
+  .footer_container nav {
+    min-width: 0;
+  }
+
+  .footer_items {
+    flex-wrap: nowrap;
+    gap: 0;
+  }
+
+  .footer_items .footer_link,
+  .footer_container .footer_scroll_top {
+    padding: 2px;
+    font-size: 12px;
+  }
+
+  .footer_scroll_top {
+    flex-shrink: 0;
+    gap: 4px;
+  }
+
+  .footer_arrow {
+    width: 12px;
+    height: 24px;
+  }
+}
