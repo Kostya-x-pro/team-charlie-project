@@ -137,3 +137,17 @@
   opacity: var(--opacity-muted);
   pointer-events: none;
 }
+
+@media (max-width: 767px) {
+  .button_primary .button_content {
+    padding: 14px 24px;
+    font-size: var(--font-size-16);
+    line-height: var(--line-height-24);
+  }
+
+  .button_secondary {
+    padding: 16px 32px;
+    font-size: var(--font-size-20);
+    line-height: var(--line-height-24);
+  }
+}

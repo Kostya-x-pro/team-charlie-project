@@ -21,7 +21,7 @@
 }
 
 .logo_icon {
-  width: 45px;
+  width: 42px;
   height: auto;
   color: currentColor;
 }
@@ -64,4 +64,215 @@
 .language_separator {
   margin-left: 4px;
   color: var(--color-yellow);
+}
+
+.menu_button,
+.mobile_menu,
+.mobile_menu_close {
+  display: none;
+}
+
+.mobile_menu_only .nav {
+  display: none;
+}
+
+.compact_mobile_logo .logo_button {
+  width: 24px;
+  height: 24px;
+}
+
+.compact_mobile_logo .logo_icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+@media (max-width: 767px) {
+  .header {
+    position: relative;
+    flex-shrink: 0;
+    height: 24px;
+    min-height: 24px;
+  }
+
+  .logo_button {
+    width: 26.238px;
+    height: 24.001px;
+    flex: 0 0 auto;
+  }
+
+  .logo_icon {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    overflow: visible;
+  }
+
+  .compact_mobile_logo .logo_icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .menu_button {
+    display: inline-flex;
+    align-items: center;
+    padding: 0;
+    color: var(--color-yellow);
+    background: transparent;
+    border: 0;
+    font-family: var(--font-family-halvar);
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .mobile_menu {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100svh;
+    padding: 0 16px 24px;
+    overflow-y: auto;
+    background: var(--gradient-section-primary);
+  }
+
+  .mobile_menu_main {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding-top: 72px;
+    padding-bottom: 24px;
+  }
+
+  .mobile_menu_header {
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    left: 16px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .mobile_menu_logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    color: var(--color-yellow);
+  }
+
+  .mobile_menu_logo svg {
+    display: block;
+    width: 24px;
+    height: 24px;
+    overflow: visible;
+  }
+
+  .mobile_menu_close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    color: var(--color-yellow);
+    background: transparent;
+    border: 0;
+    font-family: var(--font-family-halvar);
+    font-size: 24px;
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .mobile_nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .mobile_nav .mobile_nav_link {
+    font-size: 32px;
+    line-height: 1.15;
+  }
+
+  .mobile_menu_footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    margin-top: 50px;
+  }
+
+  .mobile_socials,
+  .mobile_language_switcher {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  .mobile_social_link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: var(--color-white);
+  }
+
+  .mobile_social_link svg {
+    display: block;
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    overflow: visible;
+  }
+
+  .mobile_language_button {
+    padding: 0;
+    color: var(--color-yellow);
+    background: transparent;
+    border: 0;
+    font-family: var(--font-family-halvar);
+    font-size: 32px;
+    font-weight: var(--font-weight-bold);
+    line-height: 1.15;
+  }
+
+  .mobile_language_active {
+    color: var(--color-white);
+    text-decoration: none;
+  }
+
+  .mobile_language_button:not(.mobile_language_active) {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .mobile_language_switcher {
+    gap: 0;
+  }
+
+  .mobile_language_separator {
+    color: var(--color-yellow);
+  }
 }

@@ -15,3 +15,16 @@
   flex: 0 0 54px;
   height: 54px;
 }
+
+@media (max-width: 767px) {
+  .carousel {
+    height: 47.5px;
+  }
+
+  .carousel .item {
+    flex-basis: 47.5px;
+    height: 47.5px;
+    font-size: 38px;
+    line-height: 47.5px;
+  }
+}

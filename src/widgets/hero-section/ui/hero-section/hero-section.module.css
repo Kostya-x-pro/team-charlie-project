@@ -95,3 +95,58 @@
   height: 40px;
   color: currentColor;
 }
+
+@media (max-width: 767px) {
+  .section {
+    height: 100svh;
+    min-height: 640px;
+    padding-block: 10px 0;
+  }
+
+  .hero_container {
+    min-height: 0;
+  }
+
+  .hero_content {
+    top: 98px;
+    width: 100%;
+    gap: 20px;
+    transform: none;
+  }
+
+  .hero_text {
+    gap: 14px;
+  }
+
+  .hero_title {
+    max-width: 100%;
+    font-size: 38px;
+    line-height: 1.25;
+    letter-spacing: var(--letter-spacing-display);
+  }
+
+  .hero_description {
+    max-width: 350px;
+    font-size: var(--font-size-16);
+    line-height: var(--line-height-24);
+  }
+
+  .snake_wrapper {
+    top: 44%;
+    right: auto;
+    bottom: auto;
+    left: -10px;
+    width: 111vw;
+    aspect-ratio: 437 / 448;
+  }
+
+  .snake_image {
+    object-fit: contain;
+    object-position: left top;
+    transform: none;
+  }
+
+  .socials {
+    display: none;
+  }
+}
